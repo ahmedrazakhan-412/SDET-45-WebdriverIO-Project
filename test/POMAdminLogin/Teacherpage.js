@@ -35,15 +35,17 @@ class TeacherModule {
     }
     async addTeacher () {
         await this.Teacher.click();
+        await expect(browser).toHaveTitleContaining('Student Management System')
         await browser.pause(3000);
         await this.AddTeacher.click();
-        await this.IndexNumber.setValue("T001");
-        await this.FullName.setValue("Imran Ahmed");
-        await this.NameWithInitials.setValue("Mr.");
+        await expect(browser).toHaveTitleContaining('Student Management System')
+        await this.IndexNumber.setValue("T002");
+        await this.FullName.setValue("Shoukat Ali");
+        await this.NameWithInitials.setValue("Mr.Shoukat Ali");
         await this.Address.setValue("LBS Nagar Raichur 584101");
         await this.Gender.selectByVisibleText('Male');
         await this.PhoneNumber.setValue("948-019-6003");
-        await this.Email.setValue("imran@gmail.com");
+        await this.Email.setValue("shoukat@gmail.com");
         await this.FileToUpload.setValue("G:/Md Ahmed Raza Khan/Test Yantra Software Solutions/TYSS Project/Photos/MyPhoto2.jpg");
         await browser.pause(3000);
         await this.Submit.scrollIntoView();
