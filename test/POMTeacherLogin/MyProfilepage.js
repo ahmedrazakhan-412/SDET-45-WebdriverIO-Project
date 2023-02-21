@@ -1,10 +1,10 @@
 
 class MyProfileModule {
     get Profile () {
-        return $('a[href="admin_profile.php"]');
+        return $("//span[normalize-space()='My Profile']");
     }
     get EditProfile () {
-        return $('a[id="btnEdit"]');
+        return $(".glyphicon.glyphicon-edit");
     }
     get FullName () {
         return $('input[name="full_name"]');
@@ -55,6 +55,12 @@ class MyProfileModule {
         await this.Update.scrollIntoView();
         await browser.pause(3000);
         await this.Update.click();
+        await browser.pause(3000);
+    }
+    async clickEditProfile () {
+        await this.Profile.click();
+        await expect(browser).toHaveTitleContaining('Student Management System')
+        await this.EditProfile.click();
         await browser.pause(3000);
     }
 }

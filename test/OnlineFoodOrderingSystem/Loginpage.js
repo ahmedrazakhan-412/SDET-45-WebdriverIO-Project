@@ -1,13 +1,13 @@
 
 class LoginModule {
     get inputUsername () {
-        return $('#email');
+        return $("input[placeholder='Username']");
     }
     get inputPassword () {
-        return $('#password');
+        return $("input[placeholder='Password']");
     }
     get btnSubmit () {
-        return $('button[type="submit"]');
+        return $("#buttn");
     }
     get btnLogout () {
         return $('//span[@class="hidden-xs"]');
@@ -17,13 +17,13 @@ class LoginModule {
     }
     async login (username,password) {
         await browser.maximizeWindow();
-        await browser.url(`http://testingserver/domain/Student_Management_System/view/login.php`);
-        await expect(browser).toHaveTitleContaining('Student Management System')
+        await browser.url(`http://testingserver/domain/Online_Food_Ordering_System/login.php`);
         await browser.pause(2000);
+        await expect(browser).toHaveTitleContaining('Login')
         await this.inputUsername.setValue(username);
         await this.inputPassword.setValue(password);
         await this.btnSubmit.click();
-        await expect(browser).toHaveTitleContaining('Student Management System')
+        await expect(browser).toHaveTitleContaining('Home')
         await browser.pause(3000);
     }
     async signout () {

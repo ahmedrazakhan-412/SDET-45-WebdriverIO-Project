@@ -69,10 +69,10 @@ class StudentModule {
         return $('#grade');
     }
     get AddStudentSubject () {
-        return $$("//input[@id='checkbox']");
+        return  browser.$$("//tbody/tr/td[1]");
     }
     get Submit () {
-        return$("#btnSubmit1");
+        return $("#btnSubmit1");
     }
     async addStudent () {
         await this.Student.scrollIntoView();
@@ -81,12 +81,12 @@ class StudentModule {
         await browser.pause(2000);
         await this.AddStudent.click();
         //Student Details
-        await this.IndexNumber.setValue("003");
+        await this.IndexNumber.setValue("005");
         await this.FullName.setValue("Md Mustaq Student");
         await this.NameWithInitials.setValue("Mr.Md Mustaq Student");
         await this.Address.setValue("A R Enclave Ground Floor 10,2nd Cross K K Lane Bangalore 560053");
         await this.Gender.selectByVisibleText('Male');
-        await this.Email.setValue("mdmustaqa@gmail.com");
+        await this.Email.setValue("mdmust@gmail.com");
         await this.DateofBirth.setValue("22-10-1992");
         await this.PhoneNumber.setValue("948-019-6003");
         await this.FileToUpload.setValue("G:/Md Ahmed Raza Khan/Test Yantra Software Solutions/TYSS Project/Photos/MyPhoto2.jpg");
@@ -96,7 +96,7 @@ class StudentModule {
         await this.GuardianNameWithInitials.setValue("Mr.Md Kaleem Parent");
         await this.GuardianAddress.setValue("A R Enclave Ground Floor 10,2nd Cross K K Lane Bangalore 560053");
         await this.GuardianGender.selectByVisibleText('Male');
-        await this.GuardianEmail.setValue("mdkaleema@gmail.com");
+        await this.GuardianEmail.setValue("mdkale@gmail.com");
         await this.GuardianDateofBirth.setValue("22-10-1957");
         await this.GuardianPhoneNumber.setValue("948-019-6003");
         await this.GuardianFileToUpload.setValue("G:/Md Ahmed Raza Khan/Test Yantra Software Solutions/TYSS Project/Photos/MyPhoto2.jpg");
@@ -105,9 +105,7 @@ class StudentModule {
         await this.Update.click();
         await browser.pause(3000);
         await this.Grade.selectByVisibleText('Grade 1');
-        for (const checkbox of this.AddStudentSubject) {
-            checkbox.click();
-        }
+        await this.AddStudentSubject.map(elem => elem.click());
         await browser.pause(3000);
         await this.Update.click();
     }

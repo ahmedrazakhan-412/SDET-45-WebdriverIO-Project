@@ -7,7 +7,7 @@ describe('My Login application', () => {
         await LoginPage.login('admin@gmail.com','12345');
         await Studentpage.addStudent();
         await LoginPage.signout();
-        await ParentLoginPage.login('mdkaleema@gmail.com','12345');
+        await ParentLoginPage.login('mdkale@gmail.com','12345');
         await ParentLoginPage.signout();
 
     })

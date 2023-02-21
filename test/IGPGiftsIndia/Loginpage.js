@@ -1,29 +1,29 @@
 
 class LoginModule {
     get inputUsername () {
-        return $('#email');
+        return $("(//input[@id='email'])[1]");
     }
     get inputPassword () {
-        return $('#password');
+        return $("(//input[@id='passwd'])[1]");
     }
     get btnSubmit () {
-        return $('button[type="submit"]');
+        return $("#buttn");
     }
     get btnLogout () {
-        return $('//span[@class="hidden-xs"]');
+        return $("//button[@data-action='login']");
     }
     get btnSignout() {
         return $('//a[normalize-space()="Sign out"]');
     }
     async login (username,password) {
         await browser.maximizeWindow();
-        await browser.url(`http://testingserver/domain/Student_Management_System/view/login.php`);
-        await expect(browser).toHaveTitleContaining('Student Management System')
+        await browser.url(`https://www.igp.com/login`);
         await browser.pause(2000);
+        await expect(browser).toHaveTitleContaining('Log in to IGP | Log In or Sign Up - IGP.com')
         await this.inputUsername.setValue(username);
         await this.inputPassword.setValue(password);
         await this.btnSubmit.click();
-        await expect(browser).toHaveTitleContaining('Student Management System')
+        await expect(browser).toHaveTitleContaining('Online Gifts Delivery: Buy/Send Gifts to India, Un')
         await browser.pause(3000);
     }
     async signout () {

@@ -1,3 +1,4 @@
+import GenericUtilityPage from '../POMAdminLogin/GenericUtilitypage.js'
 
 class TeacherModule {
     get Teacher () {
@@ -33,19 +34,25 @@ class TeacherModule {
     get Submit () {
         return $('button[id="btnSubmit"]');
     }
+    
+    ranWithEmail="";
+
     async addTeacher () {
+        let ran = await GenericUtilityPage.randombetween(10,200);
         await this.Teacher.click();
         await expect(browser).toHaveTitleContaining('Student Management System')
         await browser.pause(3000);
         await this.AddTeacher.click();
-        await expect(browser).toHaveTitleContaining('Student Management System')
-        await this.IndexNumber.setValue("T002");
-        await this.FullName.setValue("Shoukat Ali");
-        await this.NameWithInitials.setValue("Mr.Shoukat Ali");
+        await expect(browser).toHaveTitleContaining('Student Management System');
+        await this.IndexNumber.setValue("007"+ran);
+        await this.FullName.setValue("Shabbir Ali "+ran);
+        await this.NameWithInitials.setValue("Mr.Shabbir Ali "+ran);
         await this.Address.setValue("LBS Nagar Raichur 584101");
         await this.Gender.selectByVisibleText('Male');
         await this.PhoneNumber.setValue("948-019-6003");
-        await this.Email.setValue("shoukat@gmail.com");
+        let email = "shabbir"+ran+"@gmail.com"
+        await this.Email.setValue(email);
+        this.ranWithEmail=email;
         await this.FileToUpload.setValue("G:/Md Ahmed Raza Khan/Test Yantra Software Solutions/TYSS Project/Photos/MyPhoto2.jpg");
         await browser.pause(3000);
         await this.Submit.scrollIntoView();
