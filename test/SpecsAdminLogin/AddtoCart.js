@@ -18,5 +18,14 @@ describe('My Login application', async() => {
         console.log("TOTAL Amount : "+ totalValue);
         expect(totalValue).toHaveValueContaining('14')
         await browser.pause(3000);
+        await (await browser.$(".btn.btn-success.btn-lg.active")).click();
+        await (await browser.$("input[value='Order Now']")).click();
+        await browser.pause(2000);
+        await browser.acceptAlert();
+        await browser.pause(2000);
+        let order = await browser.getAlertText();
+        console.log("Confirmation Message : "+order);
+        await expect(browser).toHaveTitleContaining('My Orders');
+        await browser.pause(3000);
     })
 })

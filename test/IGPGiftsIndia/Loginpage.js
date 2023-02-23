@@ -7,7 +7,7 @@ class LoginModule {
         return $("(//input[@id='passwd'])[1]");
     }
     get btnSubmit () {
-        return $("#buttn");
+        return $("button[data-action='login']");
     }
     get btnLogout () {
         return $("//button[@data-action='login']");
@@ -23,7 +23,7 @@ class LoginModule {
         await this.inputUsername.setValue(username);
         await this.inputPassword.setValue(password);
         await this.btnSubmit.click();
-        await expect(browser).toHaveTitleContaining('Online Gifts Delivery: Buy/Send Gifts to India, Un')
+        await expect(browser).toHaveTitleContaining("IGP: India's #1 Online Gift Shop | Send Unique Gifts to India Online")
         await browser.pause(3000);
     }
     async signout () {
