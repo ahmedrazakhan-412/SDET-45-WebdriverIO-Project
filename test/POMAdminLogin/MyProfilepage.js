@@ -50,7 +50,8 @@ class MyProfileModule {
         await this.PhoneNumber.setValue("948-019-6003");
         await this.Password.clearValue();
         await this.Password.setValue("12345");
-        await this.FileToUpload.setValue("G:/Md Ahmed Raza Khan/Test Yantra Software Solutions/TYSS Project/Photos/MyPhoto2.jpg");
+        let photo = "./test/Photos/MyPhoto1.jpg";
+        await this.FileToUpload.setValue(photo);
         await browser.pause(3000);
         await this.Update.scrollIntoView();
         await browser.pause(3000);
