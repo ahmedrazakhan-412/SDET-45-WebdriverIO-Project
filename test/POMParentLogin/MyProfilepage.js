@@ -1,10 +1,16 @@
 
 class MyProfileModule {
     get Profile () {
-        return $('a[href="admin_profile.php"]');
+        return $("//span[normalize-space()='Profile']");
     }
-    get EditProfile () {
-        return $('a[id="btnEdit"]');
+    get  MyProfile () {
+        return $("a[href='parents_profile.php']");
+    }
+    get  MySonProfiler () {
+        return $("a[href='my_sons_profile.php']");
+    }
+    get EditProfileParent () {
+        return $(".glyphicon.glyphicon-edit");
     }
     get FullName () {
         return $('input[name="full_name"]');
@@ -55,6 +61,19 @@ class MyProfileModule {
         await this.Update.scrollIntoView();
         await browser.pause(3000);
         await this.Update.click();
+        await browser.pause(3000);
+    }
+
+    async clickEditMyProfile () {
+        await this.Profile.click();
+        await expect(browser).toHaveTitleContaining('Student Management System')
+        await this.EditProfileParent.click();
+        await browser.pause(3000);
+    }
+
+    async clickEditMySonProfile () {
+        await this.Profile.click();
+        await expect(browser).toHaveTitleContaining('Student Management System')
         await browser.pause(3000);
     }
 }

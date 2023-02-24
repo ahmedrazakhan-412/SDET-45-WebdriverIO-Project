@@ -34,9 +34,7 @@ class TeacherModule {
     get Submit () {
         return $('button[id="btnSubmit"]');
     }
-    
     ranWithEmail="";
-
     async addTeacher () {
         let ran = await GenericUtilityPage.randombetween(10,200);
         await this.Teacher.click();

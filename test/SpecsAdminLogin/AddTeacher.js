@@ -4,10 +4,12 @@ import TeacherLoginPage from '../POMTeacherLogin/Loginpage.js';
 import TeacherProfilePage from '../POMTeacherLogin/MyProfilepage.js';
 
 describe('My Login application', async() => {
-    it('should login with valid credentials', async () => {
+    it('should login with valid credentials as Admin', async () => {
         await LoginPage.login('admin@gmail.com','12345');
         await TeacherPage.addTeacher();
         await LoginPage.signout();
+    })
+    it('should login with valid credentials as Teacher', async () => {
         await TeacherLoginPage.login(TeacherPage.ranWithEmail,'12345');
         await TeacherProfilePage.clickEditProfile();
         await TeacherLoginPage.signout();

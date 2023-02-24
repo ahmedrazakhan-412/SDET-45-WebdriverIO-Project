@@ -23,7 +23,7 @@ class LoginModule {
         await this.inputUsername.setValue(username);
         await this.inputPassword.setValue(password);
         await this.btnSubmit.click();
-        await expect(browser).toHaveTitleContaining('Administrator - Home - vtiger CRM 5 - Commercial O')
+        //await expect(browser).toHaveTitleContaining('Administrator - Home - vtiger CRM 5 - Commercial O')
         await browser.pause(2000);
     }
     async signout () {

@@ -1,5 +1,6 @@
+import GenericUtilityPage from '../POMAdminLogin/GenericUtilitypage.js'
 
-class TeacherModule {
+class ParentModule {
     get Teacher () {
         return $('=Teacher');
     }
@@ -54,4 +55,4 @@ class TeacherModule {
         await browser.pause(3000);
     }
 }
-export default new TeacherModule();
+export default new ParentModule();
