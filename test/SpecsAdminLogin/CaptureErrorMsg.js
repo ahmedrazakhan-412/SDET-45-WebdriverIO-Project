@@ -1,8 +1,11 @@
 import LoginPage from '../Assignment/Loginpage.js'
 
+/*To capture the Error Text has appearance after entering wrong credentials*/
+
 describe('My Login application',() => {
     let text
     let ErrorText
+
     it('should wait until Error Text has appearance', async () => {
         await LoginPage.login('ahmedrazakha@gmail.com','khan@412');
         text = await (await browser.$("//div[@class='errorMessage']"));

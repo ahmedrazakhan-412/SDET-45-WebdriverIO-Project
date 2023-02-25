@@ -6,6 +6,7 @@ describe('My Login application', async() => {
     let DropDown
     let alltext
     let value
+    
     /* moveTo mouseOver
     Move the mouse by an offset of the specified element. If no element is specified, the move is relative to the current mouse cursor. If an element is provided but no offset, the mouse will be moved to the center of the element. If the element is not visible, it will be scrolled into view.*/
     it('should demonstrate the moveTo method', async () => {

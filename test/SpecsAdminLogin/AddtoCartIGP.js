@@ -4,6 +4,7 @@ describe('My Login application', async() => {
     let total
     let totalValue
     let addtocart
+    
     it('should login with valid credentials', async () => {
         await LoginPage.login('ahmedrazakhan412@gmail.com','Khan@412');
         await (await browser.$("(//span[@class='selection-panel-text'][normalize-space()='Cakes'])[1]")).click();

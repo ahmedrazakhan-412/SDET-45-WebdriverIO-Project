@@ -66,6 +66,7 @@ class MyProfileModule {
 
     async clickEditMyProfile () {
         await this.Profile.click();
+        await this.MyProfile.click();
         await expect(browser).toHaveTitleContaining('Student Management System')
         await this.EditProfileParent.click();
         await browser.pause(3000);
@@ -73,6 +74,7 @@ class MyProfileModule {
 
     async clickEditMySonProfile () {
         await this.Profile.click();
+        await this.MySonProfiler.click();
         await expect(browser).toHaveTitleContaining('Student Management System')
         await browser.pause(3000);
     }
