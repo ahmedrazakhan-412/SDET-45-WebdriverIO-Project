@@ -7,7 +7,11 @@ and click on edit button and enter all details and click on update and save the 
 describe('My Login application', () => {
     it('should login with valid credentials', async () => {
         await LoginPage.login('admin@gmail.com','12345');
+    }) 
+    it('should click on MyProfile and enter all details and save', async () => {
         await MyProfile.editProfile();
+    })
+    it('should signout from an application as admin', async () => {
         await LoginPage.signout();
     })
 })

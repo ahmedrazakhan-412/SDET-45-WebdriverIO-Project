@@ -14,7 +14,7 @@ class AttendenceModule {
     async addAttendence(indexNumber) {
         await this.Attendence.click();
         await this.Attendence.click();
-        await expect(browser).toHaveTitleContaining('Student Management System');
+        expect(browser).toHaveTitleContaining('Student Management System');
         await this.IndexNumber.setValue(indexNumber);
         await this.btnSubmit.click();
         await browser.pause(3000);

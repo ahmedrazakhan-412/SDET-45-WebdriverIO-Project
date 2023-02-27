@@ -11,11 +11,23 @@ and then login has teacher to check subject is present or not. */
 describe('My Login application', () => {
     it('should login with valid credentials', async () => {
         await AdminLoginPage.login('admin@gmail.com','12345');
+    })
+    it('should click on subject and add subject', async () => {
         await Subjectpage.addSubject('WebdriverIO');
+    })
+    it('should add same subject to teacher as Subject Routing', async () => {
         await SubjectRoutingpage.addSubjectRouting('WebdriverIO');
+    })
+    it('should signout from an application as admin', async () => {
         await AdminLoginPage.signout();
-        await TeacherLoginPage.login('imran@gmail.com','12345');
+    })
+    it('should login as teacher with valid credentials', async () => {
+        await TeacherLoginPage.login('shabbir557@gmail.com','12345');
+    })
+    it('should check wheather same subject is present or not', async () => {
         await TeacherSubjectPage.mySubject();
+    })
+    it('should signout from an application as teacher', async () => {
         await TeacherLoginPage.signout();
     })
 })

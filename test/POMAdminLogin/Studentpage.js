@@ -82,11 +82,13 @@ class StudentModule {
     async addStudent () {
         await this.Student.scrollIntoView();
         await this.Student.click();
-        await expect(browser).toHaveTitleContaining('Student Management System');
+        expect(browser).toHaveTitleContaining('Student Management System');
         let ran = await GenericUtilityPage.randombetween(500,900);
         await browser.pause(2000);
         await this.AddStudent.click();
-        //Student Details
+
+        // Student Details
+
         await this.IndexNumber.setValue("00"+ran);
         await this.FullName.setValue("Md Mustaq Student "+ran);
         await this.NameWithInitials.setValue("Mr.Md Mustaq Student "+ran);
@@ -98,7 +100,9 @@ class StudentModule {
         await this.PhoneNumber.setValue("948-019-6003");
         await this.FileToUpload.setValue("G:/Md Ahmed Raza Khan/Test Yantra Software Solutions/TYSS Project/Photos/MyPhoto2.jpg");
         await browser.pause(3000);
-        //Guardian Details Details
+
+        // Guardian Details 
+
         await this.GuardianFullName.setValue("Md Kaleem Parent "+ran);
         await this.GuardianNameWithInitials.setValue("Mr.Md Kaleem Parent "+ran);
         await this.GuardianAddress.setValue("A R Enclave Ground Floor 10,2nd Cross K K Lane Bangalore 560053");

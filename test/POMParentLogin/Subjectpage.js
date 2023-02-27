@@ -11,7 +11,7 @@ class SubjectModule {
     async mySubject() {
         await this.Subject.click()
         await this.MySubject.click();
-        await expect(browser).toHaveTitleContaining('Student Management System')
+        expect(browser).toHaveTitleContaining('Student Management System')
         await browser.pause(3000);
     }
 }

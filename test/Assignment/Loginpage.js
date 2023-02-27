@@ -19,11 +19,11 @@ class LoginModule {
         await browser.maximizeWindow();
         await browser.url(`http://testingserver:8888/`);
         await browser.pause(2000);
-        await expect(browser).toHaveTitleContaining('vtiger CRM 5 - Commercial Open Source CRM')
+        expect(browser).toHaveTitleContaining('vtiger CRM 5 - Commercial Open Source CRM')
         await this.inputUsername.setValue(username);
         await this.inputPassword.setValue(password);
         await this.btnSubmit.click();
-        //await expect(browser).toHaveTitleContaining('Administrator - Home - vtiger CRM 5 - Commercial O')
+        expect(browser).toHaveTitleContaining('Administrator - Home - vtiger CRM 5 - Commercial O')
         await browser.pause(2000);
     }
     async signout () {

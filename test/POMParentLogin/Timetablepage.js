@@ -10,9 +10,9 @@ class TimetableModule {
     }
     async myTimetable() {
         await this.Timetable.click()
-        await expect(browser).toHaveTitleContaining('Student Management System')
+        expect(browser).toHaveTitleContaining('Student Management System')
         await this.MyTimetable.click();
-        await expect(browser).toHaveTitleContaining('Student Management System')
+        expect(browser).toHaveTitleContaining('Student Management System')
         await browser.pause(3000);
     }
 }

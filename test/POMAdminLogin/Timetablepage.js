@@ -34,7 +34,7 @@ class TimetableModule {
     }
     async addTimetable(Day,Subject,Teacher,Classroom) {
         await this.Timetable.click();
-        await expect(browser).toHaveTitleContaining('Student Management System')
+        expect(browser).toHaveTitleContaining('Student Management System')
         await this.Grade.selectByVisibleText('Grade 1');
         await browser.pause(3000);
         await this.btnSubmit.click();

@@ -1,5 +1,6 @@
 
-class LoginModule {
+class LoginModule2 {
+    a = 50;
     get inputUsername () {
         return $('#email');
     }
@@ -18,8 +19,8 @@ class LoginModule {
     async login (username,password) {
         await browser.maximizeWindow();
         await browser.url(`http://testingserver/domain/Student_Management_System/view/login.php`);
-        expect(browser).toHaveTitleContaining('Student Management System')
         await browser.pause(2000);
+        expect(browser).toHaveTitleContaining('Student Management System')
         await this.inputUsername.setValue(username);
         await this.inputPassword.setValue(password);
         await this.btnSubmit.click();
@@ -33,4 +34,6 @@ class LoginModule {
         await browser.pause(3000);
     }
 }
-export default new LoginModule();
+
+let LoginRequirepage = new LoginModule2();
+module.exports = LoginRequirepage;

@@ -1,3 +1,5 @@
+import GenericUtilityPage from '../POMAdminLogin/GenericUtilitypage.js'
+
 class SubjectModule {
     get Subject () {
         return $('=Subject');
@@ -8,9 +10,12 @@ class SubjectModule {
     get btnSubmit () {
         return $("button[type='submit']");
     }
-    async addSubject(Subject) {
+    Subject="";
+    async addSubject() {
+        let randomNumber = await GenericUtilityPage.randombetween(500,900);
+        this.Subject = "WebdriverIO"+randomNumber;
         await this.Subject.click()
-        await expect(browser).toHaveTitleContaining('Student Management System')
+        expect(browser).toHaveTitleContaining('Student Management System')
         await this.SubjectName.setValue(Subject);
         await this.btnSubmit.click();
         await browser.pause(3000);

@@ -10,10 +10,20 @@ and then login has teacher to check Timetable is present or not. */
 describe('My Login application', () => {
     it('should login with valid credentials', async () => {
         await AdminLoginPage.login('admin@gmail.com','12345');
+    })
+    it('should click on Timetable and add Timetable and assign to Teacher', async () => {
         await Timetablepage.addTimetable('Tuesday','WebdriverIO','Mr.Imran Ahmed','Class A');
+    })
+    it('should signout from an application as admin', async () => {
         await AdminLoginPage.signout();
-        await TeacherLoginPage.login('imran@gmail.com','12345');
+    })
+    it('should login as teacher with valid credentials', async () => {
+        await TeacherLoginPage.login('shabbir557@gmail.com','12345');
+    })
+    it('should check wheather Timetable is present or not', async () => {
         await TeacherTimetablePage.myTimetable();
+    })
+    it('should signout from an application as teacher', async () => {
         await TeacherLoginPage.signout();
     })
 })

@@ -35,7 +35,7 @@ class MyProfileModule {
     }
     async editProfile () {
         await this.Profile.click();
-        await expect(browser).toHaveTitleContaining('Student Management System')
+        expect(browser).toHaveTitleContaining('Student Management System')
         await this.EditProfile.click();
         await this.FullName.clearValue();
         await this.FullName.setValue("Md Ahmed Raza Khan");

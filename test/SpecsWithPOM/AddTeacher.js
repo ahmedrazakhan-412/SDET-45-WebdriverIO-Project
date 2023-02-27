@@ -9,12 +9,20 @@ And then login has a teacher to check wheather teacher is account is created or 
 describe('My Login application', async() => {
     it('should login with valid credentials as Admin', async () => {
         await LoginPage.login('admin@gmail.com','12345');
+    })  
+    it('should click on teacher and create teacher profile', async () => {
         await TeacherPage.addTeacher();
+    })
+    it('should signout from an application as admin', async () => {
         await LoginPage.signout();
     })
-    it('should login with valid credentials as Teacher', async () => {
+    it('should login as teacher with valid credentials', async () => {
         await TeacherLoginPage.login(TeacherPage.ranWithEmail,'12345');
+    })
+    it('should check wheather teacher details is available or not', async () => {
         await TeacherProfilePage.clickEditProfile();
+    })
+    it('should signout from an application as teacher', async () => {
         await TeacherLoginPage.signout();
     })
 })

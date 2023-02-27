@@ -19,11 +19,11 @@ class LoginModule {
         await browser.maximizeWindow();
         await browser.url(`http://testingserver/domain/Online_Food_Ordering_System/login.php`);
         await browser.pause(2000);
-        await expect(browser).toHaveTitleContaining('Login')
+        expect(browser).toHaveTitleContaining('Login')
         await this.inputUsername.setValue(username);
         await this.inputPassword.setValue(password);
         await this.btnSubmit.click();
-        //await expect(browser).toHaveTitleContaining('Home')
+        // expect(browser).toHaveTitleContaining('Home')
         await browser.pause(3000);
     }
     async signout () {

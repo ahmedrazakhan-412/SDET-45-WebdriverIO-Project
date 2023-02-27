@@ -22,7 +22,7 @@ class SubjectRoutingModule {
     }
     async addSubjectRouting(sub) {
         await this.SubjectRouting.click();
-        await expect(browser).toHaveTitleContaining('Student Management System')
+        expect(browser).toHaveTitleContaining('Student Management System')
         await this.AddSubjectRouting.click();
         await this.Grade.selectByVisibleText('Grade 1');
         await this.Subject.selectByVisibleText(sub);

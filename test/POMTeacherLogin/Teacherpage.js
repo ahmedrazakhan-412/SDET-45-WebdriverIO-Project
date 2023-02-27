@@ -35,10 +35,10 @@ class TeacherModule {
     }
     async addTeacher () {
         await this.Teacher.click();
-        await expect(browser).toHaveTitleContaining('Student Management System')
+        expect(browser).toHaveTitleContaining('Student Management System')
         await browser.pause(3000);
         await this.AddTeacher.click();
-        await expect(browser).toHaveTitleContaining('Student Management System')
+        expect(browser).toHaveTitleContaining('Student Management System')
         await this.IndexNumber.setValue("T002");
         await this.FullName.setValue("Shoukat Ali");
         await this.NameWithInitials.setValue("Mr.Shoukat Ali");

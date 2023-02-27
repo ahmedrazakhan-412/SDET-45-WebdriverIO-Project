@@ -1,0 +1,53 @@
+import GenericUtilityPage from '../POMAdminLogin/GenericUtilitypage.js'
+
+/*Login as admin and Navigate to application click on classroom. 
+and create classroom and check wheather classroom is created or not*/
+
+describe('My Login application', () => {
+    let allclassroom
+    let classroomwithran
+
+    it('should login as admin with valid credentials', async () => {
+        await browser.maximizeWindow();
+        await browser.url(`http://testingserver/domain/Student_Management_System/view/login.php`);
+        await browser.pause(2000);
+        expect(browser).toHaveTitleContaining('Student Management System')
+        await browser.$('#email').setValue('admin@gmail.com');
+        await browser.$('#password').setValue('12345');
+        await browser.$('button[type="submit"]').click();
+        expect(browser).toHaveTitleContaining('Student Management System')
+        await browser.pause(3000);
+    })
+    it('should click on classroom and create classroom', async () => {
+        let randomNumber = await GenericUtilityPage.randombetween(500,900);
+        await browser.$("//span[normalize-space()='Classroom']").click();
+        expect(browser).toHaveTitleContaining('Student Management System');
+        classroomwithran = "JavaScript"+randomNumber;
+        await browser.$("#name").setValue(classroomwithran);
+        await browser.$("#student_count").setValue(12);
+        await browser.$("#btnSubmit").click();
+        await browser.pause(3000);
+    })
+    it('should check wheather classroom is created or not', async () => {
+        await browser.$("//span[normalize-space()='Classroom']").click();
+        await browser.scroll(0,500);
+        await browser.pause(3000);
+        allclassroom = await browser.$$("//tr[@role='row']/td[2]");
+        allclassroom.forEach(async element => {
+        let classroom = await element.getText();
+        console.log("classrooms----->"+classroom);
+        if (classroom == classroomwithran) {
+        expect(classroom).toStrictEqual(classroomwithran);
+        console.log("The Classroom has been Verfied : "+classroom);
+        }
+        });
+        expect(browser).toHaveTitleContaining('Student Management System');
+        await browser.pause(3000);
+    })
+    it('should signout from an application as admin', async () => {
+        await browser.$('//span[@class="hidden-xs"]').click();
+        await browser.pause(3000);
+        await browser.$('//a[normalize-space()="Sign out"]').click();
+        await browser.pause(3000);
+    })
+})

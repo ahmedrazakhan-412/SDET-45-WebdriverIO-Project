@@ -38,10 +38,10 @@ class TeacherModule {
     async addTeacher () {
         let ran = await GenericUtilityPage.randombetween(10,200);
         await this.Teacher.click();
-        await expect(browser).toHaveTitleContaining('Student Management System')
+        expect(browser).toHaveTitleContaining('Student Management System')
         await browser.pause(3000);
         await this.AddTeacher.click();
-        await expect(browser).toHaveTitleContaining('Student Management System');
+        expect(browser).toHaveTitleContaining('Student Management System');
         await this.IndexNumber.setValue("007"+ran);
         await this.FullName.setValue("Shabbir Ali "+ran);
         await this.NameWithInitials.setValue("Mr.Shabbir Ali "+ran);

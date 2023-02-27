@@ -9,10 +9,17 @@ and then login has teacher to check attendence is present or not. */
 describe('My Login application', () => {
     it('should login with valid credentials', async () => {
         await LoginPage.login('admin@gmail.com','12345');
-        await Attendencepage.addAttendence("001");
-        await LoginPage.signout();
-        await TeacherLoginPage.login('mdkale@gmail.com','12345');
-        await TeacherLoginPage.signout();
-
     })
+    it('should click on attendence and add attendence to teacher', async () => {
+        await Attendencepage.addAttendence("007557");
+    }) 
+    it('should signout from an application as admin', async () => {
+        await LoginPage.signout();
+    }) 
+    it('should login as teacher with valid credentials', async () => {
+        await TeacherLoginPage.login('shabbir557@gmail.com','12345');
+    }) 
+    it('should signout from an application as teacher', async () => {
+        await TeacherLoginPage.signout();
+    }) 
 })
