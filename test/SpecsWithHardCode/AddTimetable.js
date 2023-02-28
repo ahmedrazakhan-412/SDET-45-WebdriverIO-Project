@@ -24,8 +24,8 @@ describe('My Login application', () => {
         await browser.$("button[class='btn btn-primary']").click();
         await browser.$(".btn.btn-success.btn-sm.pull-right").click();
         await browser.$("#day").selectByVisibleText('Tuesday');
-        await browser.$("#subject").selectByVisibleText('WebdriverIO');
-        await browser.$("#teacher").selectByVisibleText('Mr.Imran Ahmed');
+        await browser.$("#subject").selectByVisibleText('WebdriverIO683');
+        await browser.$("#teacher").selectByVisibleText('Mr.Shabbir Ali 557');
         await browser.$("#classroom").selectByVisibleText('Class A');
         await browser.$("#start_time").setValue(8);
         await browser.$("#end_time").setValue(9);

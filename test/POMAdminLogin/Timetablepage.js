@@ -43,8 +43,8 @@ class TimetableModule {
         await this.Subject.selectByVisibleText(Subject);
         await this.Teacher.selectByVisibleText(Teacher);
         await this.Classroom.selectByVisibleText(Classroom);
-        await this.StartTime.setValue(8);
-        await this.EndTime.setValue(9);
+        await this.StartTime.setValue(2);
+        await this.EndTime.setValue(3);
         await browser.pause(3000);
         await this.btnSubmitFinal.click();
         await browser.pause(3000);

@@ -26,7 +26,7 @@ class SubjectRoutingModule {
         await this.AddSubjectRouting.click();
         await this.Grade.selectByVisibleText('Grade 1');
         await this.Subject.selectByVisibleText(sub);
-        await this.Teacher.selectByVisibleText('Mr.Imran Ahmed');
+        await this.Teacher.selectByVisibleText('Mr.Shabbir Ali 557');
         await this.Fee.setValue("850");
         await browser.pause(3000);
         await this.btnSubmit.click();

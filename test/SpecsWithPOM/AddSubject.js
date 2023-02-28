@@ -13,10 +13,10 @@ describe('My Login application', () => {
         await AdminLoginPage.login('admin@gmail.com','12345');
     })
     it('should click on subject and add subject', async () => {
-        await Subjectpage.addSubject('WebdriverIO');
+        await Subjectpage.addSubject();
     })
     it('should add same subject to teacher as Subject Routing', async () => {
-        await SubjectRoutingpage.addSubjectRouting('WebdriverIO');
+        await SubjectRoutingpage.addSubjectRouting(Subjectpage.Subjectwithran);
     })
     it('should signout from an application as admin', async () => {
         await AdminLoginPage.signout();
@@ -25,7 +25,7 @@ describe('My Login application', () => {
         await TeacherLoginPage.login('shabbir557@gmail.com','12345');
     })
     it('should check wheather same subject is present or not', async () => {
-        await TeacherSubjectPage.mySubject();
+        await TeacherSubjectPage.mySubject(Subjectpage.Subjectwithran);
     })
     it('should signout from an application as teacher', async () => {
         await TeacherLoginPage.signout();

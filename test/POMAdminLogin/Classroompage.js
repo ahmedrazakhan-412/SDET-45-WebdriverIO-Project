@@ -14,7 +14,7 @@ class ClassroomModule {
         return $("#btnSubmit");
     }
     get allclassroom () {
-        return browser.$$("//tr[@role='row']/td[2]");
+        return $$("//tr[@role='row']/td[2]");
     }
     static classroomwithran="";
 

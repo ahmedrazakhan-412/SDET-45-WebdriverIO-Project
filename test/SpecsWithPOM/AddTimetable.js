@@ -12,7 +12,7 @@ describe('My Login application', () => {
         await AdminLoginPage.login('admin@gmail.com','12345');
     })
     it('should click on Timetable and add Timetable and assign to Teacher', async () => {
-        await Timetablepage.addTimetable('Tuesday','WebdriverIO','Mr.Imran Ahmed','Class A');
+        await Timetablepage.addTimetable('Monday','WebdriverIO683','Mr.Shabbir Ali 557','Class A');
     })
     it('should signout from an application as admin', async () => {
         await AdminLoginPage.signout();

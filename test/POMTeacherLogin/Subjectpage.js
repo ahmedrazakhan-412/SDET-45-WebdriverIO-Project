@@ -8,18 +8,18 @@ class SubjectModule {
     get AllSubject () {
         return $("a[href='all_subject2.php']");
     }
-    get mySubject () {
+    get myAllSubject () {
         return browser.$$("//tr[@role='row']/td[3]");
     }
-    async mySubject() {
+    async mySubject(Subject2) {
         await this.Subject.click()
         await this.MySubject.click();
-        await this.mySubject.forEach(async element => {
-        let subject = await element.getText();
-        console.log("MySubject----->"+subject);
-        if (subject == Subject) {
-        expect(subject).toStrictEqual(Subject);
-        console.log("The Subject has been Verfied : "+subject);
+        await this.myAllSubject.forEach(async element => {
+        let subject1 = await element.getText();
+        console.log("MySubject----->"+subject1);
+        if (subject1 == Subject2) {
+        expect(subject1).toStrictEqual(Subject2);
+        console.log("The Subject has been Verfied : "+subject1);
         }
         });
         expect(browser).toHaveTitleContaining('Student Management System')

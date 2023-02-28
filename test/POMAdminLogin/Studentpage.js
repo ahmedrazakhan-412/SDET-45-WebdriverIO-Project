@@ -79,6 +79,7 @@ class StudentModule {
         return $("//div[@id='msk123456']//button[@id='btnSubmit1']");
     }
     ranWithEmail="";
+    
     async addStudent () {
         await this.Student.scrollIntoView();
         await this.Student.click();

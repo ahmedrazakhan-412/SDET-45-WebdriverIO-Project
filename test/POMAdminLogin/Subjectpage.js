@@ -10,13 +10,16 @@ class SubjectModule {
     get btnSubmit () {
         return $("button[type='submit']");
     }
-    Subject="";
+    
+    Subjectwithran="";
+
     async addSubject() {
         let randomNumber = await GenericUtilityPage.randombetween(500,900);
-        this.Subject = "WebdriverIO"+randomNumber;
+        let Subjectwithran2 = "WebdriverIO"+randomNumber;
+        this.Subjectwithran=Subjectwithran2;
         await this.Subject.click()
         expect(browser).toHaveTitleContaining('Student Management System')
-        await this.SubjectName.setValue(Subject);
+        await this.SubjectName.setValue(Subjectwithran2);
         await this.btnSubmit.click();
         await browser.pause(3000);
     }
