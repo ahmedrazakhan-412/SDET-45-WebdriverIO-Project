@@ -1,52 +1,52 @@
 class TimetableModule {
-    get Timetable () {
+    get Timetable_link () {
         return $('//span[normalize-space()="Timetable"]');
     }
-    get Grade () {
+    get Grade_dp () {
         return $('#grade');
     }
-    get btnSubmit () {
+    get btnSubmit_btn () {
         return $("button[class='btn btn-primary']");
     }
-    get Add () {
+    get Add_btn () {
         return $(".btn.btn-success.btn-sm.pull-right");
     }
-    get Day () {
+    get Day_tf () {
         return $("#day");
     }
-    get Subject () {
+    get Subject_dp () {
         return $("#subject");
     }
-    get Teacher () {
+    get Teacher_dp () {
         return $("#teacher");
     }
-    get Classroom () {
+    get Classroom_dp () {
         return $("#classroom");
     }
-    get StartTime () {
+    get StartTime_tf() {
         return $("#start_time");
     }
-    get EndTime () {
+    get EndTime_tf () {
         return $("#end_time");
     }
-    get btnSubmitFinal () {
+    get btnSubmitFinal_btn () {
         return $("#btnSubmit");
     }
     async addTimetable(Day,Subject,Teacher,Classroom) {
-        await this.Timetable.click();
+        await this.Timetable_link.click();
         expect(browser).toHaveTitleContaining('Student Management System')
-        await this.Grade.selectByVisibleText('Grade 1');
+        await this.Grade_dp.selectByVisibleText('Grade 1');
         await browser.pause(3000);
-        await this.btnSubmit.click();
-        await this.Add.click();
-        await this.Day.selectByVisibleText(Day);
-        await this.Subject.selectByVisibleText(Subject);
-        await this.Teacher.selectByVisibleText(Teacher);
-        await this.Classroom.selectByVisibleText(Classroom);
-        await this.StartTime.setValue(2);
-        await this.EndTime.setValue(3);
+        await this.btnSubmit_btn.click();
+        await this.Add_btn.click();
+        await this.Day_tf.selectByVisibleText(Day);
+        await this.Subject_dp.selectByVisibleText(Subject);
+        await this.Teacher_dp.selectByVisibleText(Teacher);
+        await this.Classroom_dp.selectByVisibleText(Classroom);
+        await this.StartTime_tf.setValue(2);
+        await this.EndTime_tf.setValue(3);
         await browser.pause(3000);
-        await this.btnSubmitFinal.click();
+        await this.btnSubmitFinal_btn.click();
         await browser.pause(3000);
         await browser.refresh();
     }

@@ -1,18 +1,18 @@
 
 class LoginModule {
-    get inputUsername () {
+    get inputUsername_tf () {
         return $("(//input[@id='email'])[1]");
     }
-    get inputPassword () {
+    get inputPassword_tf () {
         return $("(//input[@id='passwd'])[1]");
     }
-    get btnSubmit () {
+    get btnSubmit_btn () {
         return $("button[data-action='login']");
     }
-    get btnLogout () {
+    get btnLogout_img () {
         return $("//button[@data-action='login']");
     }
-    get btnSignout() {
+    get btnSignout_btn () {
         return $('//a[normalize-space()="Sign out"]');
     }
     async login (username,password) {
@@ -20,16 +20,16 @@ class LoginModule {
         await browser.url(`https://www.igp.com/login`);
         await browser.pause(2000);
         expect(browser).toHaveTitleContaining('Log in to IGP | Log In or Sign Up - IGP.com')
-        await this.inputUsername.setValue(username);
-        await this.inputPassword.setValue(password);
-        await this.btnSubmit.click();
+        await this.inputUsername_tf.setValue(username);
+        await this.inputPassword_tf.setValue(password);
+        await this.btnSubmit_btn.click();
         expect(browser).toHaveTitleContaining("IGP: India's #1 Online Gift Shop | Send Unique Gifts to India Online")
         await browser.pause(3000);
     }
     async signout () {
-        await this.btnLogout.click();
+        await this.btnLogout_img.click();
         await browser.pause(3000);
-        await this.btnSignout.click();
+        await this.btnSignout_btn.click();
         await browser.pause(3000);
     }
 }

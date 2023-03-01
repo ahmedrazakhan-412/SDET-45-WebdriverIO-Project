@@ -1,13 +1,13 @@
 import GenericUtilityPage from '../POMAdminLogin/GenericUtilitypage.js'
 
 class SubjectModule {
-    get Subject () {
+    get Subject_link () {
         return $('=Subject');
     }
-    get SubjectName () {
+    get SubjectName_tf () {
         return $("#name");
     }
-    get btnSubmit () {
+    get btnSubmit_btn () {
         return $("button[type='submit']");
     }
     
@@ -17,10 +17,10 @@ class SubjectModule {
         let randomNumber = await GenericUtilityPage.randombetween(500,900);
         let Subjectwithran2 = "WebdriverIO"+randomNumber;
         this.Subjectwithran=Subjectwithran2;
-        await this.Subject.click()
+        await this.Subject_link.click()
         expect(browser).toHaveTitleContaining('Student Management System')
-        await this.SubjectName.setValue(Subjectwithran2);
-        await this.btnSubmit.click();
+        await this.SubjectName_tf.setValue(Subjectwithran2);
+        await this.btnSubmit_btn.click();
         await browser.pause(3000);
     }
 }

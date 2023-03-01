@@ -1,57 +1,57 @@
 import GenericUtilityPage from '../POMAdminLogin/GenericUtilitypage.js'
 
 class ParentModule {
-    get Teacher () {
+    get Teacher_link () {
         return $('=Teacher');
     }
-    get AddTeacher () {
+    get AddTeacher_link () {
         return $('a[href="teacher.php"]');
     }
-    get IndexNumber () {
+    get IndexNumber_tf () {
         return $('input[name="index_number"]');
     }
-    get FullName () {
+    get FullName_tf () {
         return $('input[name="full_name"]');
     }
-    get NameWithInitials () {
+    get NameWithInitials_tf () {
         return $('input[name="i_name"]');
     }
-    get Address () {
+    get Address_tf () {
         return $('input[name="address"]');
     }
-    get Gender () {
+    get Gender_dp () {
         return $('#gender');
     }
-    get PhoneNumber () {
+    get PhoneNumber_tf () {
         return $('input[name="phone"]');
     }
-    get Email () {
+    get Email_tf () {
         return $('input[name="email"]');
     }
-    get FileToUpload () {
+    get FileToUpload_btn () {
         return $('input[name="fileToUpload"]');
     }
-    get Submit () {
+    get Submit_btn () {
         return $('button[id="btnSubmit"]');
     }
     async addTeacher () {
-        await this.Teacher.click();
+        await this.Teacher_link.click();
         expect(browser).toHaveTitleContaining('Student Management System')
         await browser.pause(3000);
-        await this.AddTeacher.click();
+        await this.AddTeacher_link.click();
         expect(browser).toHaveTitleContaining('Student Management System')
-        await this.IndexNumber.setValue("T002");
-        await this.FullName.setValue("Shoukat Ali");
-        await this.NameWithInitials.setValue("Mr.Shoukat Ali");
-        await this.Address.setValue("LBS Nagar Raichur 584101");
-        await this.Gender.selectByVisibleText('Male');
-        await this.PhoneNumber.setValue("948-019-6003");
-        await this.Email.setValue("shoukat@gmail.com");
-        await this.FileToUpload.setValue("G:/Md Ahmed Raza Khan/Test Yantra Software Solutions/TYSS Project/Photos/MyPhoto2.jpg");
+        await this.IndexNumber_tf.setValue("T002");
+        await this.FullName_tf.setValue("Shoukat Ali");
+        await this.NameWithInitials_tf.setValue("Mr.Shoukat Ali");
+        await this.Address_tf.setValue("LBS Nagar Raichur 584101");
+        await this.Gender_dp.selectByVisibleText('Male');
+        await this.PhoneNumber_tf.setValue("948-019-6003");
+        await this.Email_tf.setValue("shoukat@gmail.com");
+        await this.FileToUpload_btn.setValue("G:/Md Ahmed Raza Khan/Test Yantra Software Solutions/TYSS Project/Photos/MyPhoto2.jpg");
         await browser.pause(3000);
-        await this.Submit.scrollIntoView();
+        await this.Submit_btn.scrollIntoView();
         await browser.pause(3000);
-        await this.Submit.click();
+        await this.Submit_btn.click();
         await browser.pause(3000);
     }
 }

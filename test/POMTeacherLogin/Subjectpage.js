@@ -1,20 +1,20 @@
 class SubjectModule {
-    get Subject () {
+    get Subject_link () {
         return $('=Subject');
     }
-    get MySubject () {
+    get MySubject_link () {
         return $("a[href='my_subject2.php']");
     }
-    get AllSubject () {
+    get AllSubject_link () {
         return $("a[href='all_subject2.php']");
     }
-    get myAllSubject () {
+    get myAllSubject_table() {
         return browser.$$("//tr[@role='row']/td[3]");
     }
     async mySubject(Subject2) {
-        await this.Subject.click()
-        await this.MySubject.click();
-        await this.myAllSubject.forEach(async element => {
+        await this.Subject_link.click()
+        await this.MySubject_link.click();
+        await this.myAllSubject_table.forEach(async element => {
         let subject1 = await element.getText();
         console.log("MySubject----->"+subject1);
         if (subject1 == Subject2) {

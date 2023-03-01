@@ -1,17 +1,17 @@
 class TimetableModule {
-    get Timetable () {
+    get Timetable_link () {
         return $('=Timetable');
     }
-    get MyTimetable() {
+    get MyTimetable_link () {
         return $("a[href='my_timetable2.php']");
     }
-    get AllTimetable () {
+    get AllTimetable_link () {
         return $("a[href='all_timetable2.php']");
     }
     async myTimetable() {
-        await this.Timetable.click()
+        await this.Timetable_link.click()
         expect(browser).toHaveTitleContaining('Student Management System')
-        await this.MyTimetable.click();
+        await this.MyTimetable_link.click();
         expect(browser).toHaveTitleContaining('Student Management System')
         await browser.pause(3000);
     }

@@ -4,7 +4,7 @@ import GenericUtilityPage from '../POMAdminLogin/GenericUtilitypage.js'
 and create classroom and check wheather classroom is created or not*/
 
 describe('My Login application', () => {
-    let allclassroom
+    let allclassroom_table
     let classroomwithran
 
     it('should login as admin with valid credentials', async () => {
@@ -32,8 +32,8 @@ describe('My Login application', () => {
         await browser.$("//span[normalize-space()='Classroom']").click();
         await browser.scroll(0,500);
         await browser.pause(3000);
-        allclassroom = await browser.$$("//tr[@role='row']/td[2]");
-        allclassroom.forEach(async element => {
+        allclassroom_table = await browser.$$("//tr[@role='row']/td[2]");
+        allclassroom_table.forEach(async element => {
         let classroom = await element.getText();
         console.log("classrooms----->"+classroom);
         if (classroom == classroomwithran) {

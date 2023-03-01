@@ -1,19 +1,19 @@
 import GenericUtilityPage from '../POMAdminLogin/GenericUtilitypage.js'
 
 class ClassroomModule {
-    get Classroom () {
+    get Classroom_link () {
         return $("//span[normalize-space()='Classroom']");
     }
-    get Name () {
+    get Name_tf () {
         return $("#name");
     }
-    get StudentCount () {
+    get StudentCount_tf () {
         return $("#student_count");
     }
-    get btnSubmit () {
+    get btnSubmit_btn () {
         return $("#btnSubmit");
     }
-    get allclassroom () {
+    get allclassroom_table () {
         return $$("//tr[@role='row']/td[2]");
     }
     static classroomwithran="";
@@ -21,21 +21,21 @@ class ClassroomModule {
     async addClassroom() {
         let randomNumber = await GenericUtilityPage.randombetween(500,900);
         ClassroomModule.classroomwithran = "JavaScript"+randomNumber;
-        await this.Classroom.click();
+        await this.Classroom_link.click();
         expect(browser).toHaveTitleContaining('Student Management System');
-        await this.Name.setValue(ClassroomModule.classroomwithran);
-        await this.StudentCount.setValue(12);
-        await this.btnSubmit.click();
+        await this.Name_tf.setValue(ClassroomModule.classroomwithran);
+        await this.StudentCount_tf.setValue(12);
+        await this.btnSubmit_btn.click();
         await browser.pause(3000);
-        await this.Classroom.click();
+        await this.Classroom_module.click();
         await browser.pause(3000);
         await browser.scroll(0,500);
         await browser.pause(3000);
     }
     async checkClassroom() {
-        await this.Classroom.click();
+        await this.Classroom_link.click();
         expect(browser).toHaveTitleContaining('Student Management System');
-        await this.allclassroom.forEach(async element => {
+        await this.allclassroom_table.forEach(async element => {
         let classroom = await element.getText();
         console.log("classrooms----->"+classroom);
         if (classroom == ClassroomModule.classroomwithran) {

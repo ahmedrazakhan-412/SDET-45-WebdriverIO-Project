@@ -6,7 +6,7 @@ and then login has teacher to check subject is present or not. */
 
 describe('My Login application', () => {
     let Subject
-    let mySubject
+    let mySubject_table
     it('should login as admin with valid credentials', async () => {
         await browser.maximizeWindow();
         await browser.url(`http://testingserver/domain/Student_Management_System/view/login.php`);
@@ -58,8 +58,8 @@ describe('My Login application', () => {
     it('should check wheather same subject is present or not', async () => {
         await browser.$('=Subject').click()
         await browser.$("a[href='my_subject2.php']").click();
-        mySubject = await browser.$$("//tr[@role='row']/td[3]");
-        mySubject.forEach(async element => {
+        mySubject_table = await browser.$$("//tr[@role='row']/td[3]");
+        mySubject_table.forEach(async element => {
         let subject = await element.getText();
         console.log("MySubject----->"+subject);
         if (subject == Subject) {

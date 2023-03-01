@@ -1,131 +1,131 @@
 import GenericUtilityPage from '../POMAdminLogin/GenericUtilitypage.js'
 
 class StudentModule {
-    get Student () {
+    get Student_link () {
         return $("//span[normalize-space()='Student']");
     }
-    get AddStudent () {
+    get AddStudent_link () {
         return $("a[href='student.php']");
     }
     //Student Details
-    get IndexNumber () {
+    get IndexNumber_tf () {
         return $("#index_number");
     }
-    get FullName () {
+    get FullName_tf () {
         return $("#full_name");
     }
-    get NameWithInitials () {
+    get NameWithInitials_tf () {
         return $("#i_name");
     }
-    get Address () {
+    get Address_tf () {
         return $("#address");
     }
-    get Email () {
+    get Email_tf () {
         return $("#email");
     }
-    get PhoneNumber () {
+    get PhoneNumber_tf () {
         return $("#phone");
     }
-    get DateofBirth () {
+    get DateofBirth_tf () {
         return $("#b_date");
     }
-    get Gender () {
+    get Gender_dp () {
         return $("#gender");
     }
-    get FileToUpload () {
+    get FileToUpload_btn () {
         return $("#fileToUpload");
     }
     //Guardian Details Details
-    get GuardianIndexNumber () {
+    get GuardianIndexNumber_tf () {
         return $("#g_index");
     }
-    get GuardianFullName () {
+    get GuardianFullName_tf () {
         return $("#g_full_name");
     }
-    get GuardianNameWithInitials () {
+    get GuardianNameWithInitials_tf () {
         return $("#g_i_name");
     }
-    get GuardianAddress () {
+    get GuardianAddress_tf () {
         return $("#g_address");
     }
-    get GuardianEmail () {
+    get GuardianEmail_tf () {
         return $("#g_email");
     }
-    get GuardianPhoneNumber () {
+    get GuardianPhoneNumber_tf () {
         return $("#g_phone");
     }
-    get GuardianDateofBirth () {
+    get GuardianDateofBirth_tf () {
         return $("#g_b_date");
     }
-    get GuardianGender () {
+    get GuardianGender_dp () {
         return $("#g_gender");
     }
-    get GuardianFileToUpload () {
+    get GuardianFileToUpload_btn () {
         return $("#g_fileToUpload");
     }
-    get Update () {
+    get Update_btn () {
         return $("#btnSubmit");
     }
-    get Grade () {
+    get Grade_btn () {
         return $('#grade');
     }
-    get AddStudentSubject () {
+    get AddStudentSubject_cb () {
         return  browser.$$("//input[@id='checkbox']");
     }
-    get Submit () {
+    get Submit_btn () {
         return $("#btnSubmit1");
     }
-    get Paid () {
+    get Paid_btn () {
         return $("//div[@id='msk123456']//button[@id='btnSubmit1']");
     }
     ranWithEmail="";
     
     async addStudent () {
-        await this.Student.scrollIntoView();
-        await this.Student.click();
+        await this.Student_link.scrollIntoView();
+        await this.Student_link.click();
         expect(browser).toHaveTitleContaining('Student Management System');
         let ran = await GenericUtilityPage.randombetween(500,900);
         await browser.pause(2000);
-        await this.AddStudent.click();
+        await this.AddStudent_link.click();
 
         // Student Details
 
-        await this.IndexNumber.setValue("00"+ran);
-        await this.FullName.setValue("Md Mustaq Student "+ran);
-        await this.NameWithInitials.setValue("Mr.Md Mustaq Student "+ran);
-        await this.Address.setValue("A R Enclave Ground Floor 10,2nd Cross K K Lane Bangalore 560053");
-        await this.Gender.selectByVisibleText('Male');
+        await this.IndexNumber_tf.setValue("00"+ran);
+        await this.FullName_tf.setValue("Md Mustaq Student "+ran);
+        await this.NameWithInitials_tf.setValue("Mr.Md Mustaq Student "+ran);
+        await this.Address_tf.setValue("A R Enclave Ground Floor 10,2nd Cross K K Lane Bangalore 560053");
+        await this.Gender_dp.selectByVisibleText('Male');
         let studentEmail = "mustaq"+ran+"@gmail.com"
-        await this.Email.setValue(studentEmail);
-        await this.DateofBirth.setValue("22-10-1992");
-        await this.PhoneNumber.setValue("948-019-6003");
-        await this.FileToUpload.setValue("G:/Md Ahmed Raza Khan/Test Yantra Software Solutions/TYSS Project/Photos/MyPhoto2.jpg");
+        await this.Email_tf.setValue(studentEmail);
+        await this.DateofBirth_tf.setValue("22-10-1992");
+        await this.PhoneNumber_tf.setValue("948-019-6003");
+        await this.FileToUpload_btn.setValue("G:/Md Ahmed Raza Khan/Test Yantra Software Solutions/TYSS Project/Photos/MyPhoto2.jpg");
         await browser.pause(3000);
 
         // Guardian Details 
 
-        await this.GuardianFullName.setValue("Md Kaleem Parent "+ran);
-        await this.GuardianNameWithInitials.setValue("Mr.Md Kaleem Parent "+ran);
-        await this.GuardianAddress.setValue("A R Enclave Ground Floor 10,2nd Cross K K Lane Bangalore 560053");
-        await this.GuardianGender.selectByVisibleText('Male');
+        await this.GuardianFullName_tf.setValue("Md Kaleem Parent "+ran);
+        await this.GuardianNameWithInitials_tf.setValue("Mr.Md Kaleem Parent "+ran);
+        await this.GuardianAddress_tf.setValue("A R Enclave Ground Floor 10,2nd Cross K K Lane Bangalore 560053");
+        await this.GuardianGender_dp.selectByVisibleText('Male');
         let parentEmail = "kaleem"+ran+"@gmail.com"
-        await this.GuardianEmail.setValue(parentEmail);
+        await this.GuardianEmail_tf.setValue(parentEmail);
         this.ranWithEmail=parentEmail;
-        await this.GuardianDateofBirth.setValue("22-10-1957");
-        await this.GuardianPhoneNumber.setValue("948-019-6003");
-        await this.GuardianFileToUpload.setValue("G:/Md Ahmed Raza Khan/Test Yantra Software Solutions/TYSS Project/Photos/MyPhoto2.jpg");
-        await this.Update.scrollIntoView();
+        await this.GuardianDateofBirth_tf.setValue("22-10-1957");
+        await this.GuardianPhoneNumber_tf.setValue("948-019-6003");
+        await this.GuardianFileToUpload_btn.setValue("G:/Md Ahmed Raza Khan/Test Yantra Software Solutions/TYSS Project/Photos/MyPhoto2.jpg");
+        await this.Update_btn.scrollIntoView();
         await browser.pause(3000);
-        await this.Update.click();
+        await this.Update_btn.click();
         await browser.pause(2000);
-        await this.Grade.selectByVisibleText('Grade 1');
+        await this.Grade_btn.selectByVisibleText('Grade 1');
         await browser.pause(2000);
-        this.AddStudentSubject.forEach(async element => {
+        this.AddStudentSubject_cb.forEach(async element => {
         await element.click();
         });
         await browser.pause(3000);
-        await this.Submit.click();
-        await this.Paid.click();
+        await this.Submit_btn.click();
+        await this.Paid_btn.click();
     }
 }
 export default new StudentModule();

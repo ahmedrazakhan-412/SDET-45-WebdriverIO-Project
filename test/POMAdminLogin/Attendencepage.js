@@ -1,22 +1,22 @@
 class AttendenceModule {
-    get Attendence () {
+    get Attendence_link () {
         return $("//span[normalize-space()='Attendance']");
     }
-    get AddAttendance () {
+    get AddAttendance_link () {
         return $("a[href='add_attendance.php']");
     }
-    get IndexNumber () {
+    get IndexNumber_tf () {
         return $("#index_number");
     }
-    get btnSubmit () {
+    get btnSubmit_btn () {
         return $("#btnSubmit");
     }
     async addAttendence(indexNumber) {
-        await this.Attendence.click();
-        await this.Attendence.click();
+        await this.Attendence_link.click();
+        await this.AddAttendance_link.click();
         expect(browser).toHaveTitleContaining('Student Management System');
-        await this.IndexNumber.setValue(indexNumber);
-        await this.btnSubmit.click();
+        await this.IndexNumber_tf.setValue(indexNumber);
+        await this.btnSubmit_btn.click();
         await browser.pause(3000);
     }
 }

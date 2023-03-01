@@ -1,18 +1,18 @@
 
 class LoginModule {
-    get inputUsername () {
+    get inputUsername_tf () {
         return $("input[name='user_name']");
     }
-    get inputPassword () {
+    get inputPassword_tf () {
         return $("input[name='user_password']");
     }
-    get btnSubmit () {
+    get btnSubmit_btn () {
         return $("#submitButton");
     }
-    get btnLogout () {
+    get btnLogout_img () {
         return $("img[src='themes/softed/images/user.PNG']");
     }
-    get btnSignout() {
+    get btnSignout_btn () {
         return $('//a[normalize-space()="Sign Out"]');
     }
     async login (username,password) {
@@ -20,16 +20,16 @@ class LoginModule {
         await browser.url(`http://testingserver:8888/`);
         await browser.pause(2000);
         expect(browser).toHaveTitleContaining('vtiger CRM 5 - Commercial Open Source CRM')
-        await this.inputUsername.setValue(username);
-        await this.inputPassword.setValue(password);
-        await this.btnSubmit.click();
+        await this.inputUsername_tf.setValue(username);
+        await this.inputPassword_tf.setValue(password);
+        await this.btnSubmit_btn.click();
         expect(browser).toHaveTitleContaining('Administrator - Home - vtiger CRM 5 - Commercial O')
         await browser.pause(2000);
     }
     async signout () {
-        await this.btnLogout.click();
+        await this.btnLogout_img.click();
         await browser.pause(2000);
-        await this.btnSignout.click();
+        await this.btnSignout_btn.click();
         await browser.pause(2000);
     }
 }

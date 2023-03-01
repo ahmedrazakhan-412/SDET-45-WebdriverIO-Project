@@ -1,18 +1,18 @@
 
 class LoginModule {
-    get inputUsername () {
+    get inputUsername_tf () {
         return $('#email');
     }
-    get inputPassword () {
+    get inputPassword_tf () {
         return $('#password');
     }
-    get btnSubmit () {
+    get btnSubmit_btn () {
         return $('button[type="submit"]');
     }
-    get btnLogout () {
+    get btnLogout_img () {
         return $('//span[@class="hidden-xs"]');
     }
-    get btnSignout() {
+    get btnSignout_btn () {
         return $('//a[normalize-space()="Sign out"]');
     }
     async login (username,password) {
@@ -20,16 +20,16 @@ class LoginModule {
         await browser.url(`http://testingserver/domain/Student_Management_System/view/login.php`);
         expect(browser).toHaveTitleContaining('Student Management System')
         await browser.pause(2000);
-        await this.inputUsername.setValue(username);
-        await this.inputPassword.setValue(password);
-        await this.btnSubmit.click();
+        await this.inputUsername_tf.setValue(username);
+        await this.inputPassword_tf.setValue(password);
+        await this.btnSubmit_btn.click();
         expect(browser).toHaveTitleContaining('Student Management System')
         await browser.pause(3000);
     }
     async signout () {
-        await this.btnLogout.click();
+        await this.btnLogout_img.click();
         await browser.pause(3000);
-        await this.btnSignout.click();
+        await this.btnSignout_btn.click();
         await browser.pause(3000);
     }
 }

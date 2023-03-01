@@ -1,35 +1,35 @@
 class SubjectRoutingModule {
-    get SubjectRouting () {
+    get SubjectRouting_link () {
         return $('//span[normalize-space()="Subject Routing"]');
     }
-    get AddSubjectRouting () {
+    get AddSubjectRouting_link () {
         return $("//a[normalize-space()='Add']");
     }
-    get Grade () {
+    get Grade_dp () {
         return $('#grade');
     }
-    get Subject () {
+    get Subject_dp () {
         return $("#subject");
     }
-    get Teacher () {
+    get Teacher_dp () {
         return $("#teacher");
     }
-    get Fee () {
+    get Fee_tf () {
         return $("#fee");
     }
-    get btnSubmit () {
+    get btnSubmit_btn () {
         return $("#btnSubmit");
     }
     async addSubjectRouting(sub) {
-        await this.SubjectRouting.click();
+        await this.SubjectRouting_link.click();
         expect(browser).toHaveTitleContaining('Student Management System')
-        await this.AddSubjectRouting.click();
-        await this.Grade.selectByVisibleText('Grade 1');
-        await this.Subject.selectByVisibleText(sub);
-        await this.Teacher.selectByVisibleText('Mr.Shabbir Ali 557');
-        await this.Fee.setValue("850");
+        await this.AddSubjectRouting_link.click();
+        await this.Grade_dp.selectByVisibleText('Grade 1');
+        await this.Subject_dp.selectByVisibleText(sub);
+        await this.Teacher_dp.selectByVisibleText('Mr.Shabbir Ali 557');
+        await this.Fee_tf.setValue("850");
         await browser.pause(3000);
-        await this.btnSubmit.click();
+        await this.btnSubmit_btn.click();
         await browser.pause(3000);
     }
 }

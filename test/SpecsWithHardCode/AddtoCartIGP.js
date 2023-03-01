@@ -2,9 +2,6 @@
 */
 
 describe('My Login application', async() => {
-    let total
-    let totalValue
-    let addtocart
     
     it('should login with valid credentials', async () => {
         await browser.maximizeWindow();
@@ -27,58 +24,137 @@ describe('My Login application', async() => {
         await browser.pause(3000);
     })
 
-    it('should get Dish name along with quantity and price', async () => {   
-        DishName = await (await browser.$("//a[.='Yorkshire Lamb Patties']")).getText();
-        Price = await (await browser.$("//a[.='Yorkshire Lamb Patties']/../../../../following-sibling::div//span")).getText();
-        Quantity = await (await browser.$("//a[.='Yorkshire Lamb Patties']/../../../../following-sibling::div//input[@name='quantity']")).getValue();
-        InRestaurants.push(DishName);
-        InRestaurants.push(Price);
-        InRestaurants.push(Quantity);
+    it('should Identify the Search Field',async()=>{
+        const searchTF=await browser.$('[name="q"]')
+        expect(searchTF).toBeEnabled()
+        await searchTF.setValue(item)
+
+        const searchBTN=await browser.$('//div[contains(@class,"search-icon-wrapper")]')
+        expect(searchBTN).toBeEnabled()
+        await searchBTN.click()
+
+        expect(browser).toHaveTextContaining(item)
     })
 
-    it('should AddToCart Dish along with quantity', async () => {
-        addtocart = await browser.$("//a[.='Yorkshire Lamb Patties']/../../../../following-sibling::div//input[@class='btn theme-btn']");
-        await addtocart.scrollIntoView();
-        await addtocart.click();
-        await (await browser.$("//h3[normalize-space()='Your Cart']")).scrollIntoView();
-        await browser.pause(3000);
+    
+    let pinCode='560053'
+    let weight='1 kg'
+    let cake_weight='1 Kg'
+    // let date='Feb 24 2023'
+    let month='Feb'
+    let date=25
+    let cost_in_menu
+    let cake_name='Exotic Blueberry Cake'
+
+
+    it('should Click Item and Select Delivery Date',async()=>{
+        const item_To_Be_Added=await browser.$(`//p[contains(.,'${cake_name}')]`)
+        await item_To_Be_Added.waitForDisplayed();
+        await item_To_Be_Added.click();
+
+        const pin_Search=await browser.$('#location-input')
+        expect(pin_Search).toBeEnabled()
+        await pin_Search.setValue(pinCode);
+
+        // expect(browser.$('//button[contains(.,"Available")]')).toBeDisplayed()
+        await (await browser.$('//button[contains(.,"Available")]')).waitForDisplayed({timeout:3000})
+
+        expect(browser).toHaveTitleContaining(item)
+
+        const variant=await browser.$('//span[text()="1 Kg"]')
+        expect(variant).toBeExisting()
+        await variant.click()
+
+        cost_in_menu=await (await browser.$(`//a[contains(@data-name,'${cake_name} (${cake_weight})')]/child::div/span[@class='upsell-price']`)).getText();
+
+        const check_weight=await browser.$('//li[.="Weight : 1 kg"]')
+        expect(check_weight).toHaveTextContaining(weight)
+
+        const select_date=await browser.$('//span[text()="Select Date"]')
+        expect(select_date).toBeEnabled()
+        expect(select_date).toBeClickable()
+        await select_date.click()
+
+        const delivery_date=await browser.$(`//span[contains(.,'${month}')]/../../..//a[text()='${date}']`)
+        expect(delivery_date).toBeExisting()
+        await delivery_date.click()
+
+        const selected_delivery_date=await browser.$('//input[@id="std-datepicker"]')
+
+        expect(selected_delivery_date).toHaveValueContaining(`${month} ${date}`)
+
     })
 
-    it('should get Dish name along with quantity and price in Your Cart', async () => { 
-        DishName = await (await browser.$("//div[@class='title-row']")).getText();
-        Price = await (await browser.$("//div[@class='title-row']/following-sibling::div//input[@id='exampleSelect1']")).getValue();
-        Quantity = await (await browser.$("//div[@class='title-row']/following-sibling::div//input[@id='example-number-input']")).getValue();
-        YourCart.push(DishName);
-        YourCart.push(Price);
-        YourCart.push(Quantity);
+    let time="17:00 hrs - 21:00 hrs"
+    it('should TimeSlot Selection from Dropdown',async()=>{
+        const timeslot_DD=await browser.$(`#timepicker`)
+        expect(timeslot_DD).toBeEnabled()
+        expect(timeslot_DD).toHaveTextContaining(time)
+        await timeslot_DD.selectByVisibleText('17:00 hrs - 21:00 hrs')
+
     })
 
-    it('should verify both data are same', async () => { 
-        for (let index = 0; index < InRestaurants.length; index++) {
-            if (InRestaurants[index]==YourCart[index]) {
-    console.log(+index+"--->"+InRestaurants[index]+" and "+YourCart[index]+" Both Data are same"); 
-            }
-        } 
+    it('should Delivery Type',async()=>{
+        const delivery_type=await browser.$(`#cal-Standard`)
+        await delivery_type.waitForDisplayed({timeout:5000})
+        await delivery_type.click()
     })
 
-    it('should Checkout the Dish', async () => { 
-        await (await browser.$(".btn.btn-success.btn-lg.active")).click();
+    let message_on_cake='Happy Birthday to Khan..!!'
+    it('should Message On Cake',async()=>{
+        const msg_on_cake_TF=await browser.$(`#msgcake`)
+        expect(msg_on_cake_TF).toBeEnabled()
+        await msg_on_cake_TF.setValue(message_on_cake)
     })
 
-    it('should Order Now and accept the Alert PopUp', async () => { 
-        await (await browser.$("input[value='Order Now']")).click();
-        await browser.pause(2000);
-        await browser.acceptAlert();
+    let gourmet_addons='Birthday Chocolate'
+    it('should Add Gourmet',async()=>{
+        const gourmet_addons_BTN=await browser.$(`//p[contains(.,'${gourmet_addons}')]/..//div[@class='add-ao-icon-revamp`)
+        expect(gourmet_addons_BTN).toBeExisting()
+        await gourmet_addons_BTN.click()
+
     })
 
-    it('should get Alert Text from Order Confirmation Message', async () => { 
-        await browser.pause(2000);
-        let order = await browser.getAlertText();
-        console.log("Confirmation Message : "+order);
+    let candle='Sparkle Candle'
+    it('should Add Candle',async()=>{
+        const candle_add_BTN=await browser.$(`//div/img[@alt='${candle}']/../..//div/div[contains(.,'ADD')]`)
+        expect(candle_add_BTN).toBeExisting()
+        await candle_add_BTN.click()
     })
 
-    it('should get Confirm from My Orders', async () => {     
-        expect(browser).toHaveTitleContaining('My Orders');
-        await browser.pause(3000);
+    let balloon_name='Foil HBD Balloon'
+    let balloon_cost
+    it('should Add Balloon',async()=>{
+        const balloon_add_BTN=await browser.$(`//p[contains(.,'${balloon_name}')]/..//div[contains(.,'ADD')]`)
+        expect(balloon_add_BTN).toBeExisting()
+        await balloon_add_BTN.click()
+
     })
+
+    it('should Click on Add to Cart',async()=>{
+        const add_to_cart_BTN=await browser.$(`#add-cart`)
+        expect(add_to_cart_BTN).toBeExisting()
+        expect(add_to_cart_BTN).toBeEnabled()
+        await add_to_cart_BTN.click()
+
+        expect(browser).toHaveTitleContaining('Shopping Cart')
+    })
+
+
+    it('should Checking Added Items in Cart',async()=>{
+
+        async function checkBlock(item_name){
+            const item_to_check=await browser.$(`//p[contains(.,'${item_name}')]`)
+            expect(item_to_check).toBeExisting()
+            expect(item_to_check).toHaveTextContaining(item_name)
+
+            const cost_in_checkout=await browser.$(`//p[contains(.,'${item_name}')]/../../..//div//span[contains(@class,'s-total-val')]`)
+            expect(cost_in_checkout).toBeDisplayed()
+            expect(cost_in_checkout).toEqual(cost_in_menu)
+        }
+
+        checkBlock(cake_name)
+    })
+
+
 })
