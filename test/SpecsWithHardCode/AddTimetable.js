@@ -42,7 +42,7 @@ describe('My Login application', () => {
     })
     it('should login as teacher with valid credentials', async () => {
         await browser.pause(2000);
-        await browser.$('#email').setValue('imran@gmail.com.com');
+        await browser.$('#email').setValue('shabbir557@gmail.com');
         await browser.$('#password').setValue('12345');
         await browser.$('button[type="submit"]').click();
         expect(browser).toHaveTitleContaining('Student Management System')

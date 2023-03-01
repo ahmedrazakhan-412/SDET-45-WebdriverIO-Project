@@ -1,3 +1,6 @@
+import { expect } from "chai";
+
+
 import GenericUtilityPage from '../POMAdminLogin/GenericUtilitypage.js'
 
 /*Login as admin and add student along with student and parent details and logout as admin.
@@ -10,18 +13,18 @@ describe('My Login application', () => {
         await browser.maximizeWindow();
         await browser.url(`http://testingserver/domain/Student_Management_System/view/login.php`);
         await browser.pause(2000);
-        expect(browser).toHaveTitleContaining('Student Management System')
+        expect(await browser.getTitle()).to.equal('Student Management System');
         await browser.$('#email').setValue('admin@gmail.com');
         await browser.$('#password').setValue('12345');
         await browser.$('button[type="submit"]').click();
-        await expect(browser).toHaveTitleContaining('Student Management System')
+        expect(await browser.getTitle()).to.equal('Student Management System');
         await browser.pause(3000);
     })
     it('should click on student and add student along with student and parent details', async () => {
         let randomNumber = await GenericUtilityPage.randombetween(500,900);
         await browser.$("//span[normalize-space()='Student']").scrollIntoView();
         await browser.$("//span[normalize-space()='Student']").click();
-        expect(browser).toHaveTitleContaining('Student Management System'); 
+        expect(await browser.getTitle()).to.equal('Student Management System');
         await browser.pause(2000);
         await browser.$("a[href='student.php']").click();
 
@@ -71,16 +74,17 @@ describe('My Login application', () => {
     })
     it('should login as parent with valid credentials', async () => {
         await browser.pause(2000);
+        expect(await browser.getTitle()).to.equal('Student Management System');
         await browser.$('#email').setValue(parentEmail);
         await browser.$('#password').setValue('12345');
         await browser.$('button[type="submit"]').click();
-        expect(browser).toHaveTitleContaining('Student Management System')
+        expect(await browser.getTitle()).to.equal('Student Management System');
         await browser.pause(3000);
     })
     it('should check wheather parent details is available or not', async () => {
         await browser.$("//span[normalize-space()='Profile']").click();
         await browser.$("a[href='parents_profile.php']").click();
-        expect(browser).toHaveTitleContaining('Student Management System');
+        expect(await browser.getTitle()).to.equal('Student Management System');
         await browser.$(".glyphicon.glyphicon-edit").scrollIntoView();
         await browser.$(".glyphicon.glyphicon-edit").click();
         await browser.pause(3000);
@@ -88,7 +92,7 @@ describe('My Login application', () => {
     it('should check wheather student details is added or not', async () => {
         await browser.$("//span[normalize-space()='Profile']").click();
         await browser.$("a[href='my_sons_profile.php']").click();
-        expect(browser).toHaveTitleContaining('Student Management System')
+        expect(await browser.getTitle()).to.equal('Student Management System');
         await browser.pause(3000);
     })
     it('should signout from an application as parent', async () => {

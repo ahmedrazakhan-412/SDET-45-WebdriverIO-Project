@@ -1,3 +1,4 @@
+import { expect } from "chai";
 
 class LoginModule {
     get inputUsername_tf () {
@@ -19,11 +20,12 @@ class LoginModule {
         await browser.maximizeWindow();
         await browser.url(`http://testingserver/domain/Student_Management_System/view/login.php`);
         await browser.pause(2000);
-        expect(browser).toHaveTitleContaining('Student Management System')
+        expect(await browser.getTitle()).to.equal('Student Management System');
         await this.inputUsername_tf.setValue(username);
         await this.inputPassword_tf.setValue(password);
+        expect(await this.btnSubmit_btn.isDisplayed()).to.be.true
         await this.btnSubmit_btn.click();
-        expect(browser).toHaveTitleContaining('Student Management System')
+        expect(await browser.getTitle()).to.equal('Student Management System');
         await browser.pause(3000);
     }
     async signout () {

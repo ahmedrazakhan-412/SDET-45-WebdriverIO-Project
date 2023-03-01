@@ -1,3 +1,4 @@
+import { expect } from "chai";
 
 /* Login to Online_Food_Ordering_System select Dish with Restaurants and view Menu.
  and get the Dish name along with quantity and price and AddToCart that same Dish.
@@ -19,11 +20,11 @@ describe('My Login application', async() => {
         await browser.maximizeWindow();
         await browser.url(`http://testingserver/domain/Online_Food_Ordering_System/login.php`);
         await browser.pause(2000);
-        expect(browser).toHaveTitleContaining('Login')
+        expect(await browser.getTitle()).to.equal('Login');
         await browser.$("input[placeholder='Username']").setValue('ahmedrazakhan412@gmail.com');
         await browser.$("input[placeholder='Password']").setValue('khan@412');
         await browser.$("#buttn").click();
-        expect(browser).toHaveTitleContaining('Home')
+        expect(await browser.getTitle()).to.equal('Login');
         await browser.pause(3000);
     })
 
@@ -33,16 +34,18 @@ describe('My Login application', async() => {
     })
 
     it('should get Dish name along with quantity and price', async () => {   
-        DishName = await (await browser.$("//a[.='Yorkshire Lamb Patties']")).getText();
-        Price = await (await browser.$("//a[.='Yorkshire Lamb Patties']/../../../../following-sibling::div//span")).getText();
-        Quantity = await (await browser.$("//a[.='Yorkshire Lamb Patties']/../../../../following-sibling::div//input[@name='quantity']")).getValue();
+        let dish = "'Yorkshire Lamb Patties'";
+        DishName = await (await browser.$(`//a[.=${dish}]`)).getText();
+        Price = await (await browser.$(`//a[.=${dish}]/../../../../following-sibling::div//span`)).getText();
+        Quantity = await (await browser.$(`//a[.=${dish}]/../../../../following-sibling::div//input[@name='quantity']`)).getValue();
         InRestaurants.push(DishName);
         InRestaurants.push(Price);
         InRestaurants.push(Quantity);
     })
 
     it('should AddToCart Dish along with quantity', async () => {
-        addtocart = await browser.$("//a[.='Yorkshire Lamb Patties']/../../../../following-sibling::div//input[@class='btn theme-btn']");
+        let dish1 = "'Yorkshire Lamb Patties'";
+        addtocart = await browser.$(`//a[.=${dish1}]/../../../../following-sibling::div//input[@class='btn theme-btn']`);
         await addtocart.scrollIntoView();
         await addtocart.click();
         await (await browser.$("//h3[normalize-space()='Your Cart']")).scrollIntoView();
@@ -82,8 +85,8 @@ describe('My Login application', async() => {
         console.log("Confirmation Message : "+order);
     })
 
-    it('should get Confirm from My Orders', async () => {     
-        expect(browser).toHaveTitleContaining('My Orders');
+    it('should get Confirm from My Orders', async () => {
+        expect(await browser.getTitle()).to.equal('My Orders');     
         await browser.pause(3000);
     })
     it('should Logout from an application as user', async () => {

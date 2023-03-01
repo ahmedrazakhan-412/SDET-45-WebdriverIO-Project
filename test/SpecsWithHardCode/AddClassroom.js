@@ -1,3 +1,4 @@
+import { expect } from "chai";
 import GenericUtilityPage from '../POMAdminLogin/GenericUtilitypage.js'
 
 /*Login as admin and Navigate to application click on classroom. 
@@ -11,17 +12,17 @@ describe('My Login application', () => {
         await browser.maximizeWindow();
         await browser.url(`http://testingserver/domain/Student_Management_System/view/login.php`);
         await browser.pause(2000);
-        expect(browser).toHaveTitleContaining('Student Management System')
+        expect(await browser.getTitle()).to.equal('Student Management System');
         await browser.$('#email').setValue('admin@gmail.com');
         await browser.$('#password').setValue('12345');
         await browser.$('button[type="submit"]').click();
-        expect(browser).toHaveTitleContaining('Student Management System')
+        expect(await browser.getTitle()).to.equal('Student Management System')
         await browser.pause(3000);
     })
     it('should click on classroom and create classroom', async () => {
         let randomNumber = await GenericUtilityPage.randombetween(500,900);
         await browser.$("//span[normalize-space()='Classroom']").click();
-        expect(browser).toHaveTitleContaining('Student Management System');
+        expect(await browser.getTitle()).to.equal('Student Management System');
         classroomwithran = "JavaScript"+randomNumber;
         await browser.$("#name").setValue(classroomwithran);
         await browser.$("#student_count").setValue(12);
@@ -37,11 +38,11 @@ describe('My Login application', () => {
         let classroom = await element.getText();
         console.log("classrooms----->"+classroom);
         if (classroom == classroomwithran) {
-        expect(classroom).toStrictEqual(classroomwithran);
+        expect(classroom).to.equal(classroomwithran);
         console.log("The Classroom has been Verfied : "+classroom);
         }
         });
-        expect(browser).toHaveTitleContaining('Student Management System');
+        expect(await browser.getTitle()).to.equal('Student Management System');
         await browser.pause(3000);
     })
     it('should signout from an application as admin', async () => {

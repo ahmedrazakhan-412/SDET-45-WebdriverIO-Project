@@ -8,7 +8,7 @@ describe('My IGP application', async() => {
         await LoginPage.login('ahmedrazakhan412@gmail.com','Khan@412');
     })
 
-    let item='Blueberry Cake'
+    let item='Birthday Cake'
 
     it('should Identify the Search Field',async()=>{
         const searchTF=await browser.$('[name="q"]')
@@ -23,17 +23,17 @@ describe('My IGP application', async() => {
     })
 
     
-    let pinCode='560053'
-    let weight='1 kg'
-    let cake_weight='1 Kg'
-    // let date='Feb 24 2023'
-    let month='Feb'
-    let date=25
-    let cost_in_menu
-    let cake_name='Exotic Blueberry Cake'
+    let pinCode = '560053';
+    let weight = '2 kg';
+    let cake_weight = '2 Kg';
+    let month = 'March';
+    let date = 2;
+    let cost_in_menu = "";
+    let cake_name = 'Bithday Cake';
 
 
     it('should Click Item and Select Delivery Date',async()=>{
+        
         const item_To_Be_Added=await browser.$(`//p[contains(.,'${cake_name}')]`)
         await item_To_Be_Added.waitForDisplayed();
         await item_To_Be_Added.click();
