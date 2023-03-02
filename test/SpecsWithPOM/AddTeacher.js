@@ -7,6 +7,7 @@ import TeacherProfilePage from '../POMTeacherLogin/MyProfilepage.js';
 And then login has a teacher to check wheather teacher is account is created or not.*/
 
 describe('My Login application', async() => {
+    
     it('should login with valid credentials as Admin', async () => {
         await LoginPage.login('admin@gmail.com','12345');
     })  

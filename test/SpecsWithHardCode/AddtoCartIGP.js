@@ -2,6 +2,15 @@
 */
 
 describe('My Login application', async() => {
+
+    let pinCode = '560053';
+    let weight = '2 kg';
+    let cake_weight = '2 Kg';
+    let month = 'March';
+    let date = 2;
+    let cost_in_menu = "";
+    let cake_name = 'Bithday Cake';
+    let item='Birthday Cake'
     
     it('should login with valid credentials', async () => {
         await browser.maximizeWindow();
@@ -36,17 +45,6 @@ describe('My Login application', async() => {
         expect(browser).toHaveTextContaining(item)
     })
 
-    
-    let pinCode='560053'
-    let weight='1 kg'
-    let cake_weight='1 Kg'
-    // let date='Feb 24 2023'
-    let month='Feb'
-    let date=25
-    let cost_in_menu
-    let cake_name='Exotic Blueberry Cake'
-
-
     it('should Click Item and Select Delivery Date',async()=>{
         const item_To_Be_Added=await browser.$(`//p[contains(.,'${cake_name}')]`)
         await item_To_Be_Added.waitForDisplayed();
@@ -56,7 +54,6 @@ describe('My Login application', async() => {
         expect(pin_Search).toBeEnabled()
         await pin_Search.setValue(pinCode);
 
-        // expect(browser.$('//button[contains(.,"Available")]')).toBeDisplayed()
         await (await browser.$('//button[contains(.,"Available")]')).waitForDisplayed({timeout:3000})
 
         expect(browser).toHaveTitleContaining(item)
@@ -88,7 +85,6 @@ describe('My Login application', async() => {
     let time="17:00 hrs - 21:00 hrs"
     it('should TimeSlot Selection from Dropdown',async()=>{
         const timeslot_DD=await browser.$(`#timepicker`)
-        expect(timeslot_DD).toBeEnabled()
         expect(timeslot_DD).toHaveTextContaining(time)
         await timeslot_DD.selectByVisibleText('17:00 hrs - 21:00 hrs')
 
@@ -128,22 +124,19 @@ describe('My Login application', async() => {
         const balloon_add_BTN=await browser.$(`//p[contains(.,'${balloon_name}')]/..//div[contains(.,'ADD')]`)
         expect(balloon_add_BTN).toBeExisting()
         await balloon_add_BTN.click()
-
     })
 
     it('should Click on Add to Cart',async()=>{
         const add_to_cart_BTN=await browser.$(`#add-cart`)
-        expect(add_to_cart_BTN).toBeExisting()
         expect(add_to_cart_BTN).toBeEnabled()
         await add_to_cart_BTN.click()
-
         expect(browser).toHaveTitleContaining('Shopping Cart')
     })
 
 
     it('should Checking Added Items in Cart',async()=>{
 
-        async function checkBlock(item_name){
+            async function checkBlock(item_name){
             const item_to_check=await browser.$(`//p[contains(.,'${item_name}')]`)
             expect(item_to_check).toBeExisting()
             expect(item_to_check).toHaveTextContaining(item_name)

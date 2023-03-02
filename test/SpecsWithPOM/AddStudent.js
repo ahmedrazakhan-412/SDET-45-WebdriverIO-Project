@@ -7,6 +7,7 @@ import ParentProfilePage from '../POMParentLogin/MyProfilepage.js';
 And then login has a parent to check wheather student is added or not.*/
 
 describe('My Login application', () => {
+    
     it('should login with valid credentials as Admin', async () => {
         await LoginPage.login('admin@gmail.com','12345');
     })

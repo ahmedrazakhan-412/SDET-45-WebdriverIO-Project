@@ -4,7 +4,8 @@ let importClass = require('../POMAdminLogin/LoginRequirepage.cjs');
 and click on edit button and enter all details and click on update and save the details and Logout.*/
 
 describe('My Login application', () => {
-    it('should login with valid credentials', async () => {
+
+    it('should login with valid credentials as Admin', async () => {
         console.log("The value of a : "+importClass.a);
         await importClass.login('admin@gmail.com','12345');
     })

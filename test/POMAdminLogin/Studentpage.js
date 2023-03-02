@@ -3,13 +3,16 @@ import { expect } from "chai";
 import GenericUtilityPage from '../POMAdminLogin/GenericUtilitypage.js'
 
 class StudentModule {
+
     get Student_link () {
         return $("//span[normalize-space()='Student']");
     }
     get AddStudent_link () {
         return $("a[href='student.php']");
     }
+
     //Student Details
+
     get IndexNumber_tf () {
         return $("#index_number");
     }
@@ -37,7 +40,9 @@ class StudentModule {
     get FileToUpload_btn () {
         return $("#fileToUpload");
     }
+
     //Guardian Details Details
+    
     get GuardianIndexNumber_tf () {
         return $("#g_index");
     }

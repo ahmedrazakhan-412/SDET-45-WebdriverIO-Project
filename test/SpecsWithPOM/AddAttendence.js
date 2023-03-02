@@ -7,7 +7,8 @@ and Add attendence to Teacher and logout as admin
 and then login has teacher to check attendence is present or not. */
 
 describe('My Login application', () => {
-    it('should login with valid credentials', async () => {
+
+   it('should login with valid credentials as Admin', async () => {
         await LoginPage.login('admin@gmail.com','12345');
     })
     it('should click on attendence and add attendence to teacher', async () => {

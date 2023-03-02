@@ -29,8 +29,10 @@ class LoginModule {
         await browser.pause(3000);
     }
     async signout () {
+        expect(await this.btnLogout_img.isDisplayed()).to.be.true
         await this.btnLogout_img.click();
         await browser.pause(3000);
+        expect(await this.btnSignout_btn.isDisplayed()).to.be.true
         await this.btnSignout_btn.click();
         await browser.pause(3000);
     }

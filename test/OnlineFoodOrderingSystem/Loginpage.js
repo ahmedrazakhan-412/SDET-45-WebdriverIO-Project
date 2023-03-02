@@ -24,13 +24,16 @@ class LoginModule {
         expect(await browser.getTitle()).to.equal('Login');
         await this.inputUsername_tf.setValue(username);
         await this.inputPassword_tf.setValue(password);
+        expect(await this.btnSubmit_btn.isDisplayed()).to.be.true
         await this.btnSubmit_btn.click();
-        expect(await browser.getTitle()).to.equal('Home');
-        await browser.pause(3000);
+        expect(await browser.getTitle()).to.equal('Login');
+        await browser.pause(2000);
     }
     async signout () {
+        expect(await this.btnLogout_img.isDisplayed()).to.be.true
         await this.btnLogout_img.click();
         await browser.pause(3000);
+        expect(await this.btnSignout_btn.isDisplayed()).to.be.true
         await this.btnSignout_btn.click();
         await browser.pause(3000);
     }

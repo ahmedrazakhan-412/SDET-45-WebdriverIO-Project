@@ -19,6 +19,7 @@ class AttendenceModule {
         expect(await browser.getTitle()).to.equal('Student Management System');
         await this.IndexNumber_tf.setValue(indexNumber);
         await this.btnSubmit_btn.click();
+        expect(await browser.getTitle()).to.equal('Student Management System');
         await browser.pause(3000);
     }
 }

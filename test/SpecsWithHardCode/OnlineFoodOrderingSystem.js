@@ -29,23 +29,24 @@ describe('My Login application', async() => {
     })
 
     it('should select Dish with Restaurants and view Menu', async () => {
+        let Restaurant = "'North Street Tavern'";
         await (await browser.$("//a[normalize-space()='Restaurants']")).click();
-        await browser.$("//a[normalize-space()='North Street Tavern']/../../../following-sibling::div//a[@href='dishes.php?res_id=1']").click();
+        await browser.$(`//a[normalize-space()=${Restaurant}]/../../../following-sibling::div//a[@href='dishes.php?res_id=1']`).click();
     })
 
     it('should get Dish name along with quantity and price', async () => {   
-        let dish = "'Yorkshire Lamb Patties'";
-        DishName = await (await browser.$(`//a[.=${dish}]`)).getText();
-        Price = await (await browser.$(`//a[.=${dish}]/../../../../following-sibling::div//span`)).getText();
-        Quantity = await (await browser.$(`//a[.=${dish}]/../../../../following-sibling::div//input[@name='quantity']`)).getValue();
+        let Dish = "'Stuffed Jacket Potatoes'";
+        DishName = await (await browser.$(`//a[.=${Dish}]`)).getText();
+        Price = await (await browser.$(`//a[.=${Dish}]/../../../../following-sibling::div//span`)).getText();
+        Quantity = await (await browser.$(`//a[.=${Dish}]/../../../../following-sibling::div//input[@name='quantity']`)).getValue();
         InRestaurants.push(DishName);
         InRestaurants.push(Price);
         InRestaurants.push(Quantity);
     })
 
     it('should AddToCart Dish along with quantity', async () => {
-        let dish1 = "'Yorkshire Lamb Patties'";
-        addtocart = await browser.$(`//a[.=${dish1}]/../../../../following-sibling::div//input[@class='btn theme-btn']`);
+        let Dish1 = "'Stuffed Jacket Potatoes'";
+        addtocart = await browser.$(`//a[.=${Dish1}]/../../../../following-sibling::div//input[@class='btn theme-btn']`);
         await addtocart.scrollIntoView();
         await addtocart.click();
         await (await browser.$("//h3[normalize-space()='Your Cart']")).scrollIntoView();

@@ -31,6 +31,7 @@ class ClassroomModule {
         await this.btnSubmit_btn.click();
         await browser.pause(3000);
         await this.Classroom_link.click();
+        expect(await browser.getTitle()).to.equal('Student Management System');
         await browser.pause(3000);
         await browser.scroll(0,500);
         await browser.pause(3000);

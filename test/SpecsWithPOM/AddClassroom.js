@@ -5,7 +5,8 @@ import Classroompage from '../POMAdminLogin/Classroompage.js'
 and create classroom and check wheather classroom is created or not*/
 
 describe('My Login application', () => {
-    it('should login with valid credentials', async () => {
+
+    it('should login with valid credentials as Admin', async () => {
         await LoginPage.login('admin@gmail.com','12345');
     })
     it('should click on classroom and create classroom', async () => {

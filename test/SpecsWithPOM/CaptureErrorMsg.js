@@ -6,7 +6,7 @@ describe('My Login application',() => {
     let text
     let ErrorText
 
-    it('should login with valid credentials', async () => {
+    it('should login with valid credentials as admin', async () => {
         await LoginPage.login('ahmedrazakha@gmail.com','khan@412');
     })
     it('should wait until Error Text has appearance', async () => {
