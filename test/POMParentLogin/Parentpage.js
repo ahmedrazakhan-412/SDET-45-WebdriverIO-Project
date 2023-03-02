@@ -1,6 +1,9 @@
+import { expect } from "chai";
+
 import GenericUtilityPage from '../POMAdminLogin/GenericUtilitypage.js'
 
 class ParentModule {
+
     get Teacher_link () {
         return $('=Teacher');
     }
@@ -36,10 +39,10 @@ class ParentModule {
     }
     async addTeacher () {
         await this.Teacher_link.click();
-        expect(browser).toHaveTitleContaining('Student Management System')
+        expect(await browser.getTitle()).to.equal('Student Management System');
         await browser.pause(3000);
         await this.AddTeacher_link.click();
-        expect(browser).toHaveTitleContaining('Student Management System')
+        expect(await browser.getTitle()).to.equal('Student Management System');
         await this.IndexNumber_tf.setValue("T002");
         await this.FullName_tf.setValue("Shoukat Ali");
         await this.NameWithInitials_tf.setValue("Mr.Shoukat Ali");
@@ -52,6 +55,7 @@ class ParentModule {
         await this.Submit_btn.scrollIntoView();
         await browser.pause(3000);
         await this.Submit_btn.click();
+        expect(await browser.getTitle()).to.equal('Student Management System');
         await browser.pause(3000);
     }
 }

@@ -1,5 +1,7 @@
+import { expect } from "chai";
 
 class LoginModule {
+
     get inputUsername_tf () {
         return $("input[name='user_name']");
     }
@@ -19,11 +21,11 @@ class LoginModule {
         await browser.maximizeWindow();
         await browser.url(`http://testingserver:8888/`);
         await browser.pause(2000);
-        expect(browser).toHaveTitleContaining('vtiger CRM 5 - Commercial Open Source CRM')
+        expect(await browser.getTitle()).to.equal('vtiger CRM 5 - Commercial Open Source CRM');
         await this.inputUsername_tf.setValue(username);
         await this.inputPassword_tf.setValue(password);
         await this.btnSubmit_btn.click();
-        expect(browser).toHaveTitleContaining('Administrator - Home - vtiger CRM 5 - Commercial O')
+        expect(await browser.getTitle()).to.equal('Administrator - Home - vtiger CRM 5 - Commercial O');
         await browser.pause(2000);
     }
     async signout () {

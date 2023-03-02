@@ -19,7 +19,7 @@ describe('My Login application', async() => {
     /* ScrollIntoView */
     it('should demonstrate the ScrollIntoView method', async () => {
         await LoginPage.login('admin','admin');
-        await (await browser.$("img[src='themes/softed/images/mainSettings.PNG']")).moveTo();
+        await (await browser.$("//span[.=' Administrator']/../following-sibling::td[last()]/img")).moveTo();
         await (await browser.$("//a[normalize-space()='CRM Settings']")).click();
         await browser.pause(2000);
         Workflows = await browser.$("//a[normalize-space()='Workflows']");

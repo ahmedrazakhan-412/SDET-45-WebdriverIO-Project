@@ -1,5 +1,7 @@
+import { expect } from "chai";
 
 class MyProfileModule {
+    
     get Profile_link () {
         return $("//span[normalize-space()='My Profile']");
     }
@@ -59,7 +61,7 @@ class MyProfileModule {
     }
     async clickEditProfile () {
         await this.Profile_link.click();
-        expect(browser).toHaveTitleContaining('Student Management System')
+        expect(await browser.getTitle()).to.equal('Student Management System');
         await this.EditProfile_btn.click();
         await browser.pause(3000);
     }

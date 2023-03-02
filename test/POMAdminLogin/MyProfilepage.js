@@ -1,5 +1,7 @@
+import { expect } from "chai";
 
 class MyProfileModule {
+    
     get Profile_link () {
         return $('a[href="admin_profile.php"]');
     }
@@ -35,7 +37,7 @@ class MyProfileModule {
     }
     async editProfile () {
         await this.Profile_link.click();
-        expect(browser).toHaveTitleContaining('Student Management System')
+        expect(await browser.getTitle()).to.equal('Student Management System');
         await this.EditProfile_btn.click();
         await this.FullName_tf.clearValue();
         await this.FullName_tf.setValue("Md Ahmed Raza Khan");
@@ -57,6 +59,7 @@ class MyProfileModule {
         await this.Update_btn.scrollIntoView();
         await browser.pause(3000);
         await this.Update_btn.click();
+        expect(await browser.getTitle()).to.equal('Student Management System');
         await browser.pause(3000);
     }
 }

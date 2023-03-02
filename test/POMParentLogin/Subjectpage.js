@@ -1,4 +1,7 @@
+import { expect } from "chai";
+
 class SubjectModule {
+
     get Subject_link () {
         return $('=Subject');
     }
@@ -11,7 +14,7 @@ class SubjectModule {
     async mySubject() {
         await this.Subject_link.click()
         await this.MySubject_link.click();
-        expect(browser).toHaveTitleContaining('Student Management System')
+        expect(await browser.getTitle()).to.equal('Student Management System');
         await browser.pause(3000);
     }
 }

@@ -1,4 +1,7 @@
+import { expect } from "chai";
+
 class SubjectModule {
+    
     get Subject_link () {
         return $('=Subject');
     }
@@ -22,7 +25,7 @@ class SubjectModule {
         console.log("The Subject has been Verfied : "+subject1);
         }
         });
-        expect(browser).toHaveTitleContaining('Student Management System')
+        expect(await browser.getTitle()).to.equal('Student Management System');
         await browser.pause(3000);
     }
 }

@@ -1,4 +1,7 @@
+import { expect } from "chai";
+
 class TimetableModule {
+
     get Timetable_link () {
         return $('=Timetable');
     }
@@ -10,9 +13,9 @@ class TimetableModule {
     }
     async myTimetable() {
         await this.Timetable_link.click()
-        expect(browser).toHaveTitleContaining('Student Management System')
+        expect(await browser.getTitle()).to.equal('Student Management System');
         await this.MyTimetable_link.click();
-        expect(browser).toHaveTitleContaining('Student Management System')
+        expect(await browser.getTitle()).to.equal('Student Management System');
         await browser.pause(3000);
     }
 }

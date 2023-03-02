@@ -16,7 +16,7 @@ describe('My Login application', () => {
         await browser.$('#email').setValue('admin@gmail.com');
         await browser.$('#password').setValue('12345');
         await browser.$('button[type="submit"]').click();
-        expect(await browser.getTitle()).to.equal('Student Management System')
+        expect(await browser.getTitle()).to.equal('Student Management System');
         await browser.pause(3000);
     })
     it('should click on classroom and create classroom', async () => {
@@ -25,7 +25,7 @@ describe('My Login application', () => {
         expect(await browser.getTitle()).to.equal('Student Management System');
         classroomwithran = "JavaScript"+randomNumber;
         await browser.$("#name").setValue(classroomwithran);
-        await browser.$("#student_count").setValue(12);
+        await browser.$("#student_count").setValue(randomNumber);
         await browser.$("#btnSubmit").click();
         await browser.pause(3000);
     })

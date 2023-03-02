@@ -1,5 +1,7 @@
+import { expect } from "chai";
 
 class LoginModule {
+
     get inputUsername_tf () {
         return $("input[placeholder='Username']");
     }
@@ -19,11 +21,11 @@ class LoginModule {
         await browser.maximizeWindow();
         await browser.url(`http://testingserver/domain/Online_Food_Ordering_System/login.php`);
         await browser.pause(2000);
-        expect(browser).toHaveTitleContaining('Login')
+        expect(await browser.getTitle()).to.equal('Login');
         await this.inputUsername_tf.setValue(username);
         await this.inputPassword_tf.setValue(password);
         await this.btnSubmit_btn.click();
-        // expect(browser).toHaveTitleContaining('Home')
+        expect(await browser.getTitle()).to.equal('Home');
         await browser.pause(3000);
     }
     async signout () {

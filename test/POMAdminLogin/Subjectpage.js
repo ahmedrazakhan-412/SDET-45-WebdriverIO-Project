@@ -1,3 +1,5 @@
+import { expect } from "chai";
+
 import GenericUtilityPage from '../POMAdminLogin/GenericUtilitypage.js'
 
 class SubjectModule {
@@ -18,9 +20,10 @@ class SubjectModule {
         let Subjectwithran2 = "WebdriverIO"+randomNumber;
         this.Subjectwithran=Subjectwithran2;
         await this.Subject_link.click()
-        expect(browser).toHaveTitleContaining('Student Management System')
+        expect(await browser.getTitle()).to.equal('Student Management System');
         await this.SubjectName_tf.setValue(Subjectwithran2);
         await this.btnSubmit_btn.click();
+        expect(await browser.getTitle()).to.equal('Student Management System');
         await browser.pause(3000);
     }
 }

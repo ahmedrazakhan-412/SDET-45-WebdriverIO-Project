@@ -1,5 +1,7 @@
+import { expect } from "chai";
 
 class LoginModule {
+
     get inputUsername_tf () {
         return $("(//input[@id='email'])[1]");
     }
@@ -19,11 +21,11 @@ class LoginModule {
         await browser.maximizeWindow();
         await browser.url(`https://www.igp.com/login`);
         await browser.pause(2000);
-        expect(browser).toHaveTitleContaining('Log in to IGP | Log In or Sign Up - IGP.com')
+        expect(await browser.getTitle()).to.equal('Log in to IGP | Log In or Sign Up - IGP.com');
         await this.inputUsername_tf.setValue(username);
         await this.inputPassword_tf.setValue(password);
         await this.btnSubmit_btn.click();
-        expect(browser).toHaveTitleContaining("IGP: India's #1 Online Gift Shop | Send Unique Gifts to India Online")
+        expect(await browser.getTitle()).to.equal("IGP: India's #1 Online Gift Shop | Send Unique Gifts to India Online");
         await browser.pause(3000);
     }
     async signout () {

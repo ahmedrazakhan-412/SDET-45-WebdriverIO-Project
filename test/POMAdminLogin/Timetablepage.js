@@ -1,4 +1,7 @@
+import { expect } from "chai";
+
 class TimetableModule {
+
     get Timetable_link () {
         return $('//span[normalize-space()="Timetable"]');
     }
@@ -34,7 +37,7 @@ class TimetableModule {
     }
     async addTimetable(Day,Subject,Teacher,Classroom) {
         await this.Timetable_link.click();
-        expect(browser).toHaveTitleContaining('Student Management System')
+        expect(await browser.getTitle()).to.equal('Student Management System');
         await this.Grade_dp.selectByVisibleText('Grade 1');
         await browser.pause(3000);
         await this.btnSubmit_btn.click();
@@ -47,6 +50,7 @@ class TimetableModule {
         await this.EndTime_tf.setValue(3);
         await browser.pause(3000);
         await this.btnSubmitFinal_btn.click();
+        expect(await browser.getTitle()).to.equal('Student Management System');
         await browser.pause(3000);
         await browser.refresh();
     }

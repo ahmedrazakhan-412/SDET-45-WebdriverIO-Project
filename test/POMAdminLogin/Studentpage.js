@@ -1,3 +1,5 @@
+import { expect } from "chai";
+
 import GenericUtilityPage from '../POMAdminLogin/GenericUtilitypage.js'
 
 class StudentModule {
@@ -83,10 +85,11 @@ class StudentModule {
     async addStudent () {
         await this.Student_link.scrollIntoView();
         await this.Student_link.click();
-        expect(browser).toHaveTitleContaining('Student Management System');
+        expect(await browser.getTitle()).to.equal('Student Management System');
         let ran = await GenericUtilityPage.randombetween(500,900);
         await browser.pause(2000);
         await this.AddStudent_link.click();
+        expect(await browser.getTitle()).to.equal('Student Management System');
 
         // Student Details
 

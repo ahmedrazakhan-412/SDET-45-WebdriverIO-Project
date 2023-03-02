@@ -1,4 +1,7 @@
+import { expect } from "chai";
+
 class SubjectRoutingModule {
+    
     get SubjectRouting_link () {
         return $('//span[normalize-space()="Subject Routing"]');
     }
@@ -22,7 +25,7 @@ class SubjectRoutingModule {
     }
     async addSubjectRouting(sub) {
         await this.SubjectRouting_link.click();
-        expect(browser).toHaveTitleContaining('Student Management System')
+        expect(await browser.getTitle()).to.equal('Student Management System');
         await this.AddSubjectRouting_link.click();
         await this.Grade_dp.selectByVisibleText('Grade 1');
         await this.Subject_dp.selectByVisibleText(sub);
@@ -30,6 +33,7 @@ class SubjectRoutingModule {
         await this.Fee_tf.setValue("850");
         await browser.pause(3000);
         await this.btnSubmit_btn.click();
+        expect(await browser.getTitle()).to.equal('Student Management System');
         await browser.pause(3000);
     }
 }

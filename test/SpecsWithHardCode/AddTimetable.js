@@ -52,7 +52,7 @@ describe('My Login application', () => {
         await browser.$('=Timetable').click()
         expect(browser).toHaveTitleContaining('Student Management System')
         await browser.$("a[href='my_timetable2.php']").click();
-        expect(browser).toHaveTitleContaining('Student Management System')
+        expect(browser).toHaveTitleContaining('Student Management System');
         await browser.pause(3000);
     })
     it('should signout from an application as teacher', async () => {
