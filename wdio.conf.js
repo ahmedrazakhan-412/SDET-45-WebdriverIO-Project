@@ -86,17 +86,20 @@ export const config = {
         // maxInstances: 5,
         // browserName: 'chrome',
         // acceptInsecureCerts: true,
+        // port : 4444,
         // 'goog:chromeOptions': {
         //             prefs: {
         //               // 0 - Default, 1 - Allow, 2 - Block
         //               'profile.managed_default_content_settings.notifications': 1
         //             }
         //           }
-        //         },
+        //         }
 
-        { maxInstances: 5,
+        { 
+        maxInstances: 5,
         browserName: 'firefox',
         acceptInsecureCerts: true,
+        port : 4444
         }
         // If outputDir is provided WebdriverIO can capture driver session logs
         // it is possible to configure which logTypes to include/exclude.
