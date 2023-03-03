@@ -28,6 +28,31 @@ export const config = {
         './test/SpecsWithPOM/**/*.js','./test/SpecsWithHardCode/**/*.js'
     ],
     // Patterns to exclude.
+    suites: {
+
+    // HardCode Suites
+
+    hardCodeSmokeSuite : ['./test/SpecsWithHardCode/AddClassroom.js','./test/SpecsWithHardCode/AddSubject.js'],
+    hardCodeIntegrationSuite : ['./test/SpecsWithHardCode/AddClassroom.js','./test/SpecsWithHardCode/AddSubject.js'],
+    hardCodeSystemSuite : ['./test/SpecsWithHardCode/EditProfile.js','./test/SpecsWithHardCode/AddClassroom.js',
+    './test/SpecsWithHardCode/AddSubject.js','./test/SpecsWithHardCode/AddStudent.js',
+    './test/SpecsWithHardCode/AddTeacher.js','./test/SpecsWithHardCode/AddTimetable.js'],
+    hardCodeRegressionSuite : ['./test/SpecsWithHardCode/EditProfile.js','./test/SpecsWithHardCode/AddClassroom.js',
+    './test/SpecsWithHardCode/AddSubject.js','./test/SpecsWithHardCode/AddStudent.js',
+    './test/SpecsWithHardCode/AddTeacher.js','./test/SpecsWithHardCode/AddTimetable.js'],
+
+     // POM Suites
+
+    POMSmokeSuite : ['./test/SpecsWithPOM/AddClassroom.js','./test/SpecsWithPOM/AddSubject.js'],
+    POMIntegrationSuite : ['./test/SpecsWithPOM/AddClassroom.js','./test/SpecsWithPOM/AddSubject.js'],
+    POMSystemSuite : ['./test/SpecsWithPOM/EditProfile.js','./test/SpecsWithPOM/AddClassroom.js',
+    './test/SpecsWithPOM/AddSubject.js','./test/SpecsWithPOM/AddStudent.js',
+    './test/SpecsWithPOM/AddTeacher.js','./test/SpecsWithPOM/AddTimetable.js'],
+    POMRegressionSuite : ['./test/SpecsWithPOM/EditProfile.js','./test/SpecsWithPOM/AddClassroom.js',
+    './test/SpecsWithPOM/AddSubject.js','./test/SpecsWithPOM/AddStudent.js',
+    './test/SpecsWithPOM/AddTeacher.js','./test/SpecsWithPOM/AddTimetable.js'],
+
+    },
     exclude: [
         // 'path/to/excluded/files'
     ],
@@ -53,26 +78,31 @@ export const config = {
     // Sauce Labs platform configurator - a great tool to configure your capabilities:
     // https://saucelabs.com/platform/platform-configurator
     //
-    capabilities: [{
-    
+    capabilities: [
+        //{
         // maxInstances can get overwritten per capability. So if you have an in-house Selenium
         // grid with only 5 firefox instances available you can make sure that not more than
         // 5 instances get started at a time.
-        maxInstances: 5,
-        //
-        browserName: 'chrome',
+        // maxInstances: 5,
+        // browserName: 'chrome',
+        // acceptInsecureCerts: true,
+        // 'goog:chromeOptions': {
+        //             prefs: {
+        //               // 0 - Default, 1 - Allow, 2 - Block
+        //               'profile.managed_default_content_settings.notifications': 1
+        //             }
+        //           }
+        //         },
+
+        { maxInstances: 5,
+        browserName: 'firefox',
         acceptInsecureCerts: true,
-        'goog:chromeOptions': {
-                    prefs: {
-                      // 0 - Default, 1 - Allow, 2 - Block
-                      'profile.managed_default_content_settings.notifications': 1
-                    }
-                  }
+        }
         // If outputDir is provided WebdriverIO can capture driver session logs
         // it is possible to configure which logTypes to include/exclude.
         // excludeDriverLogs: ['*'], // pass '*' to exclude all driver session logs
         // excludeDriverLogs: ['bugreport', 'server'],
-    }],
+    ],
     //
     // ===================
     // Test Configurations
@@ -120,7 +150,7 @@ export const config = {
     // Services take over a specific job you don't want to take care of. They enhance
     // your test setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the test process.
-    services: ['chromedriver'],
+    services: ['selenium-standalone'],
     
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber

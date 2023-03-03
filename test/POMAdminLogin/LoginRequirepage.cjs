@@ -1,5 +1,5 @@
 
-class LoginModule2 {
+/* class LoginModule2 {
     a = 50;
     get inputUsername_tf () {
         return $('#email');
@@ -36,4 +36,4 @@ class LoginModule2 {
 }
 
 let LoginRequirepage = new LoginModule2();
-module.exports = LoginRequirepage;
+module.exports = LoginRequirepage; */

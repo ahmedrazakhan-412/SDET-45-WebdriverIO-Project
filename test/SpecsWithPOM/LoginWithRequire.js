@@ -1,7 +1,7 @@
-let importClass = require('../POMAdminLogin/LoginRequirepage.cjs');
+/* let importClass = require('../POMAdminLogin/LoginRequirepage.cjs');
 
-/* Login as admin and Navigate to application click on MyProfile 
-and click on edit button and enter all details and click on update and save the details and Logout.*/
+Login as admin and Navigate to application click on MyProfile 
+and click on edit button and enter all details and click on update and save the details and Logout.
 
 describe('My Login application', () => {
 
@@ -14,4 +14,4 @@ describe('My Login application', () => {
     })
 })
 
-//  Error: ReferenceError: require is not defined in ES module scope, you can use import instead
+  Error: ReferenceError: require is not defined in ES module scope, you can use import instead */

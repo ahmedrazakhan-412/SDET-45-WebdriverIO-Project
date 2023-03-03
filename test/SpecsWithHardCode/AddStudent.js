@@ -1,6 +1,5 @@
 import { expect } from "chai";
 
-
 import GenericUtilityPage from '../POMAdminLogin/GenericUtilitypage.js'
 
 /*Login as admin and add student along with student and parent details and logout as admin.
@@ -20,6 +19,7 @@ describe('My Login application', () => {
         expect(await browser.getTitle()).to.equal('Student Management System');
         await browser.pause(3000);
     })
+    
     it('should click on student and add student along with student and parent details', async () => {
         let randomNumber = await GenericUtilityPage.randombetween(500,900);
         await browser.$("//span[normalize-space()='Student']").scrollIntoView();
