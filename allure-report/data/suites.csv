@@ -1,0 +1,5 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"broken","Mon Mar 06 12:37:10 IST 2023","Mon Mar 06 12:37:10 IST 2023","713","","My IGP application","","","","handling auto suggestions",""
+"passed","Mon Mar 06 12:36:41 IST 2023","Mon Mar 06 12:37:10 IST 2023","28022","","My IGP application","","","","should login with valid credentials",""
+"passed","Mon Mar 06 12:05:05 IST 2023","Mon Mar 06 12:05:36 IST 2023","30902","","My IGP application","","","","should login with valid credentials",""
+"passed","Mon Mar 06 12:05:36 IST 2023","Mon Mar 06 12:05:48 IST 2023","11827","","My IGP application","","","","handling auto suggestions",""

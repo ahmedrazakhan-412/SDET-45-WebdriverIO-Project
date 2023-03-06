@@ -9,7 +9,7 @@ describe('My IGP application', async () => {
         await browser.pause(2000);
         expect(browser).toHaveTitleContaining('Log in to IGP | Log In or Sign Up - IGP.com')
         await browser.$("(//input[@id='email'])[1]").setValue('ahmedrazakhan412@gmail.com');
-        await browser.$("(//input[@id='passwd'])[1]").setValue('Khan@412');
+        await browser.$("(//input[@id='passwd'])[1]").setValue('khan@412');
         await browser.$("button[data-action='login']").click();
         expect(browser).toHaveTitleContaining("IGP: India's #1 Online Gift Shop | Send Unique Gifts to India Online")
         await browser.pause(3000);
