@@ -94,11 +94,11 @@ export const config = {
                   }
                 },
 
-        { 
-        maxInstances: 5,
-        browserName: 'MicrosoftEdge',
-        acceptInsecureCerts: true
-        }
+        // { 
+        // maxInstances: 5,
+        // browserName: 'MicrosoftEdge',
+        // acceptInsecureCerts: true
+        // }
         // { 
         // maxInstances: 5,
         // browserName: 'Opera',
@@ -331,7 +331,7 @@ export const config = {
      */
     // afterTest: function(test, context, { error, result, duration, passed, retries }) {
     // },
-    
+
     afterTest: async function (step, scenario, { error, duration, passed }, context) {
         if (error) {
           await browser.takeScreenshot();
