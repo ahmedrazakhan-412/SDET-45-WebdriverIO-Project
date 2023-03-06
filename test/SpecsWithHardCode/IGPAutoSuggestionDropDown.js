@@ -4,7 +4,7 @@
 describe('My IGP application', async () => {
 
     it('should login with valid credentials', async () => {
-        await browser.maximizeWindow();
+       // await browser.maximizeWindow();
         await browser.url(`https://www.igp.com/login`);
         await browser.pause(2000);
         expect(browser).toHaveTitleContaining('Log in to IGP | Log In or Sign Up - IGP.com')
