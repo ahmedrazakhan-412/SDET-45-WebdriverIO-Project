@@ -11,7 +11,7 @@ describe('My Login application', () => {
     let classroomwithran
 
     it('should login as admin with valid credentials', async () => {
-        // await browser.maximizeWindow();
+        await browser.maximizeWindow();
         await browser.url(`http://testingserver/domain/Student_Management_System/view/login.php`);
         await browser.pause(2000);
         expect(await browser.getTitle()).to.equal('Student Management System');
@@ -35,6 +35,8 @@ describe('My Login application', () => {
 
     it('should check wheather classroom is created or not', async () => {
         await browser.$("//span[normalize-space()='Classroom']").click();
+        await browser.pause(3000);
+        expect(await browser.getTitle()).to.equal('Student Management System jdbgsjdfbh');
         await browser.scroll(0,500);
         await browser.pause(3000);
         allclassroom_table = await browser.$$("//tr[@role='row']/td[2]");

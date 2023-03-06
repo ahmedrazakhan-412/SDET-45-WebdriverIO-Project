@@ -92,13 +92,13 @@ export const config = {
                       'profile.managed_default_content_settings.notifications': 1
                     }
                   }
-                },
+                }
 
-        { 
-        maxInstances: 5,
-        browserName: 'MicrosoftEdge',
-        acceptInsecureCerts: true
-        }
+        // { 
+        // maxInstances: 5,
+        // browserName: 'MicrosoftEdge',
+        // acceptInsecureCerts: true
+        // }
         // { 
         // maxInstances: 5,
         // browserName: 'Opera',
