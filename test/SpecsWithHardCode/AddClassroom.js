@@ -35,8 +35,7 @@ describe('My Login application', () => {
 
     it('should check wheather classroom is created or not', async () => {
         await browser.$("//span[normalize-space()='Classroom']").click();
-        await browser.pause(3000);
-        expect(await browser.getTitle()).to.equal('Student Management System jdbgsjdfbh');
+        expect(await browser.getTitle()).to.equal('Student Management System');
         await browser.scroll(0,500);
         await browser.pause(3000);
         allclassroom_table = await browser.$$("//tr[@role='row']/td[2]");
