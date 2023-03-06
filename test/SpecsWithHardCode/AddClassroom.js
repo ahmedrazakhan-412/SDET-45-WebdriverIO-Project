@@ -11,7 +11,7 @@ describe('My Login application', () => {
     let classroomwithran
 
     it('should login as admin with valid credentials', async () => {
-        await browser.maximizeWindow();
+        // await browser.maximizeWindow();
         await browser.url(`http://testingserver/domain/Student_Management_System/view/login.php`);
         await browser.pause(2000);
         expect(await browser.getTitle()).to.equal('Student Management System');
