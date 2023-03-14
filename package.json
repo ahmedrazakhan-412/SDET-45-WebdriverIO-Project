@@ -8,11 +8,13 @@
     "@wdio/mocha-framework": "^8.3.0",
     "@wdio/selenium-standalone-service": "^8.5.1",
     "@wdio/spec-reporter": "^8.3.0",
-    "chromedriver": "^110.0.0"
+    "chromedriver": "^110.0.0",
+    "json-loader": "^0.5.7"
   },
   "scripts": {
     "wdio": "npx wdio run ./wdio.conf.js",
     "ParticularBlock": "wdio --mochaOpts.grep Keys_Actions",
+    "FetchDataFromJSON": "wdio --spec test/SpecsWithHardCode/FetchDataFromJSON.js",
     "hardCodeAddAttendence": "wdio --spec test/SpecsWithHardCode/AddAttendence.js",
     "hardCodeAddClassroom": "wdio --spec test/SpecsWithHardCode/AddClassroom.js",
     "hardCodeAddStudent": "wdio --spec test/SpecsWithHardCode/AddStudent.js",
