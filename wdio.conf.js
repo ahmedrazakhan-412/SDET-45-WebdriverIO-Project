@@ -158,7 +158,7 @@ export const config = {
     // your test setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the test process.
     // services: [['selenium-standalone', { port: 4445 }]],
-    services: ['selenium-standalone'],
+    services: ['chromedriver'],
     // services: [
     //     [(function() {
     //         if(process.env.browser===undefined || process.env.browser==="chrome") {

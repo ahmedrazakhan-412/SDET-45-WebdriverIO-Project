@@ -4,4 +4,5 @@
 import { assert } from 'chai';
 import data from '../users.json' assert {type:"json"}
 
+console.log(data);
 console.log(data[0].name);

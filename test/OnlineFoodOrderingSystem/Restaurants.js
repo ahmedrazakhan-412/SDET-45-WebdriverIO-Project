@@ -79,7 +79,7 @@ class RestaurantsModule {
         for (let index = 0; index < this.InRestaurants.length; index++) {
         if (this.InRestaurants[index]==this.YourCart[index]) {
         console.log(+index+"--->"+this.InRestaurants[index]+" and "+this.YourCart[index]+" Both Data are same"); 
-            }
+          }
         } 
     }
     async CheckoutTheDish () {

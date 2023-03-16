@@ -9,12 +9,14 @@
     "@wdio/selenium-standalone-service": "^8.5.1",
     "@wdio/spec-reporter": "^8.3.0",
     "chromedriver": "^110.0.0",
-    "json-loader": "^0.5.7"
+    "json-loader": "^0.5.7",
+    "wdio-chromedriver-service": "^8.1.1"
   },
   "scripts": {
     "wdio": "npx wdio run ./wdio.conf.js",
     "ParticularBlock": "wdio --mochaOpts.grep Keys_Actions",
     "FetchDataFromJSON": "wdio --spec test/SpecsWithHardCode/FetchDataFromJSON.js",
+    "FetchDataFromExcel": "wdio --spec test/SpecsWithHardCode/FetchDataFromExcel.js",
     "hardCodeAddAttendence": "wdio --spec test/SpecsWithHardCode/AddAttendence.js",
     "hardCodeAddClassroom": "wdio --spec test/SpecsWithHardCode/AddClassroom.js",
     "hardCodeAddStudent": "wdio --spec test/SpecsWithHardCode/AddStudent.js",
@@ -50,6 +52,7 @@
     "hardCodeRegressionSuite": "wdio --suite hardCodeRegressionSuite"
   },
   "dependencies": {
-    "chai": "^4.3.7"
+    "chai": "^4.3.7",
+    "xlsx": "^0.18.5"
   }
 }
