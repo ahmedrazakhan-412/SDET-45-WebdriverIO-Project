@@ -14,8 +14,8 @@ describe('My IGP application', async () => {
         expect(await browser.getTitle()).to.equal('Log in to IGP | Log In or Sign Up - IGP.com');
         expect(data).to.be.an('array').and.not.empty;
         // expect(data[0]).to.have.nested.property('email').that.is.a('ahmedrazakhan412@gmail.com');
-        await browser.$("(//input[@id='email'])[1]").setValue(data[0].email);
-        await browser.$("(//input[@id='passwd'])[1]").setValue(data[0].password);
+        await browser.$("(//input[@id='email'])[1]").setValue(data.email);
+        await browser.$("(//input[@id='passwd'])[1]").setValue(data.password);
         await browser.$("button[data-action='login']").click();
         await browser.pause(3000);
         expect(await browser.getTitle()).to.equal("Online Gifts Delivery: Buy/Send Gifts to India, Unique Gift Shop")
